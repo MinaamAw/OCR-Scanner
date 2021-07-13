@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,14 @@
 		302B30F0269CEF4600BB0287 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302B30EE269CEF4600BB0287 /* Main.storyboard */; };
 		302B30F2269CEF4700BB0287 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 302B30F1269CEF4700BB0287 /* Assets.xcassets */; };
 		302B30F5269CEF4700BB0287 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302B30F3269CEF4700BB0287 /* LaunchScreen.storyboard */; };
+		302B3100269D0BE000BB0287 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B30FF269D0BE000BB0287 /* CreditCard.swift */; };
+		302B3102269D0C3E00BB0287 /* CNIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B3101269D0C3E00BB0287 /* CNIC.swift */; };
+		302B3107269D10B600BB0287 /* ModelProcessorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B3106269D10B600BB0287 /* ModelProcessorViewController.swift */; };
+		302B3109269D1A0600BB0287 /* VisionRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B3108269D1A0600BB0287 /* VisionRecognizer.swift */; };
+		302B310B269D6CE700BB0287 /* DocumentExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B310A269D6CE700BB0287 /* DocumentExtractor.swift */; };
+		302B310D269D6CF700BB0287 /* CreditCardExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B310C269D6CF700BB0287 /* CreditCardExtractor.swift */; };
+		302B310F269D6D0A00BB0287 /* CNICExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B310E269D6D0A00BB0287 /* CNICExtractor.swift */; };
+		302B3112269D6F9D00BB0287 /* Reg in Frameworks */ = {isa = PBXBuildFile; productRef = 302B3111269D6F9D00BB0287 /* Reg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,13 @@
 		302B30F1269CEF4700BB0287 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		302B30F4269CEF4700BB0287 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		302B30F6269CEF4700BB0287 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		302B30FF269D0BE000BB0287 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
+		302B3101269D0C3E00BB0287 /* CNIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNIC.swift; sourceTree = "<group>"; };
+		302B3106269D10B600BB0287 /* ModelProcessorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProcessorViewController.swift; sourceTree = "<group>"; };
+		302B3108269D1A0600BB0287 /* VisionRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionRecognizer.swift; sourceTree = "<group>"; };
+		302B310A269D6CE700BB0287 /* DocumentExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentExtractor.swift; sourceTree = "<group>"; };
+		302B310C269D6CF700BB0287 /* CreditCardExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardExtractor.swift; sourceTree = "<group>"; };
+		302B310E269D6D0A00BB0287 /* CNICExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNICExtractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302B3112269D6F9D00BB0287 /* Reg in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +72,70 @@
 		302B30E7269CEF4600BB0287 /* OCR Scanner */ = {
 			isa = PBXGroup;
 			children = (
-				302B30E8269CEF4600BB0287 /* AppDelegate.swift */,
-				302B30EA269CEF4600BB0287 /* SceneDelegate.swift */,
-				302B30EC269CEF4600BB0287 /* ViewController.swift */,
-				302B30EE269CEF4600BB0287 /* Main.storyboard */,
-				302B30F1269CEF4700BB0287 /* Assets.xcassets */,
-				302B30F3269CEF4700BB0287 /* LaunchScreen.storyboard */,
 				302B30F6269CEF4700BB0287 /* Info.plist */,
+				302B3103269D0E3500BB0287 /* ModelProcessor */,
+				302B3104269D0E5300BB0287 /* Document Extractor */,
+				302B3105269D0E6400BB0287 /* Representation */,
+				302B30FE269D0BA900BB0287 /* Models */,
+				302B30FD269CF13100BB0287 /* Common */,
+				302B30FC269CF10100BB0287 /* SupportFiles */,
+				302B30EC269CEF4600BB0287 /* ViewController.swift */,
 			);
 			path = "OCR Scanner";
+			sourceTree = "<group>";
+		};
+		302B30FC269CF10100BB0287 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				302B30F1269CEF4700BB0287 /* Assets.xcassets */,
+				302B30E8269CEF4600BB0287 /* AppDelegate.swift */,
+				302B30EA269CEF4600BB0287 /* SceneDelegate.swift */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		302B30FD269CF13100BB0287 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				302B30F3269CEF4700BB0287 /* LaunchScreen.storyboard */,
+				302B30EE269CEF4600BB0287 /* Main.storyboard */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		302B30FE269D0BA900BB0287 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				302B30FF269D0BE000BB0287 /* CreditCard.swift */,
+				302B3101269D0C3E00BB0287 /* CNIC.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		302B3103269D0E3500BB0287 /* ModelProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				302B3106269D10B600BB0287 /* ModelProcessorViewController.swift */,
+				302B3108269D1A0600BB0287 /* VisionRecognizer.swift */,
+			);
+			path = ModelProcessor;
+			sourceTree = "<group>";
+		};
+		302B3104269D0E5300BB0287 /* Document Extractor */ = {
+			isa = PBXGroup;
+			children = (
+				302B310A269D6CE700BB0287 /* DocumentExtractor.swift */,
+				302B310C269D6CF700BB0287 /* CreditCardExtractor.swift */,
+				302B310E269D6D0A00BB0287 /* CNICExtractor.swift */,
+			);
+			path = "Document Extractor";
+			sourceTree = "<group>";
+		};
+		302B3105269D0E6400BB0287 /* Representation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Representation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +154,9 @@
 			dependencies = (
 			);
 			name = "OCR Scanner";
+			packageProductDependencies = (
+				302B3111269D6F9D00BB0287 /* Reg */,
+			);
 			productName = "OCR Scanner";
 			productReference = 302B30E5269CEF4600BB0287 /* OCR Scanner.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +184,9 @@
 				Base,
 			);
 			mainGroup = 302B30DC269CEF4600BB0287;
+			packageReferences = (
+				302B3110269D6F9D00BB0287 /* XCRemoteSwiftPackageReference "Reg" */,
+			);
 			productRefGroup = 302B30E6269CEF4600BB0287 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,7 +214,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302B3109269D1A0600BB0287 /* VisionRecognizer.swift in Sources */,
+				302B310D269D6CF700BB0287 /* CreditCardExtractor.swift in Sources */,
+				302B3102269D0C3E00BB0287 /* CNIC.swift in Sources */,
+				302B3107269D10B600BB0287 /* ModelProcessorViewController.swift in Sources */,
 				302B30ED269CEF4600BB0287 /* ViewController.swift in Sources */,
+				302B310F269D6D0A00BB0287 /* CNICExtractor.swift in Sources */,
+				302B3100269D0BE000BB0287 /* CreditCard.swift in Sources */,
+				302B310B269D6CE700BB0287 /* DocumentExtractor.swift in Sources */,
 				302B30E9269CEF4600BB0287 /* AppDelegate.swift in Sources */,
 				302B30EB269CEF4600BB0287 /* SceneDelegate.swift in Sources */,
 			);
@@ -296,7 +380,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vikesyy.OCR-Scanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -315,7 +399,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vikesyy.OCR-Scanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -341,6 +425,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		302B3110269D6F9D00BB0287 /* XCRemoteSwiftPackageReference "Reg" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yhkaplan/Reg.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		302B3111269D6F9D00BB0287 /* Reg */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 302B3110269D6F9D00BB0287 /* XCRemoteSwiftPackageReference "Reg" */;
+			productName = Reg;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 302B30DD269CEF4600BB0287 /* Project object */;
 }
