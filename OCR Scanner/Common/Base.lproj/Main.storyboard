@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zq3-Ww-ch6">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ocrHome-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="ocrHome" id="BYZ-38-t0r" customClass="ViewController" customModule="OCR_Scanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="OCR Scanner" id="Fhq-Cq-sLe">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="tpt-Jq-wDB"/>
+                        <barButtonItem key="rightBarButtonItem" title="Scan" image="plus.circle.fill" catalog="system" id="iv0-ta-XXQ">
+                            <inset key="largeContentSizeImageInsets" minX="1" minY="1" maxX="0.0" maxY="0.0"/>
+                            <connections>
+                                <action selector="scanBtn:" destination="BYZ-38-t0r" id="QcI-pZ-BNJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="navigationItem" destination="Fhq-Cq-sLe" id="1lO-Jv-77v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1170" y="-573"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JFW-Br-sqF">
+            <objects>
+                <navigationController id="zq3-Ww-ch6" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="U0c-gT-okz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="su5-cG-TXk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ffn-hj-zGx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="152" y="-573"/>
+        </scene>
+        <!--cameraView-->
+        <scene sceneID="ztB-ca-c4Q">
+            <objects>
+                <viewController storyboardIdentifier="modelProcessorVC" title="cameraView" id="Fzd-Dj-iSl" customClass="ModelProcessorViewController" customModule="OCR_Scanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ycn-FJ-NGp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XY-O5-z9B">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qpi-6z-85A">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mIA-9y-bnQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3XY-O5-z9B" firstAttribute="centerX" secondItem="ycn-FJ-NGp" secondAttribute="centerX" id="0WI-Pd-yOc"/>
+                            <constraint firstItem="Qpi-6z-85A" firstAttribute="top" secondItem="ycn-FJ-NGp" secondAttribute="top" id="5QO-aJ-C0r"/>
+                            <constraint firstItem="3XY-O5-z9B" firstAttribute="centerY" secondItem="ycn-FJ-NGp" secondAttribute="centerY" id="Nor-d9-LyO"/>
+                            <constraint firstItem="Qpi-6z-85A" firstAttribute="leading" secondItem="ycn-FJ-NGp" secondAttribute="leading" id="RzU-fP-g0B"/>
+                            <constraint firstAttribute="centerY" secondItem="Qpi-6z-85A" secondAttribute="centerY" id="V6S-Xe-uJK"/>
+                            <constraint firstAttribute="bottom" secondItem="Qpi-6z-85A" secondAttribute="bottom" id="aub-RL-bpY"/>
+                            <constraint firstItem="3XY-O5-z9B" firstAttribute="leading" secondItem="ycn-FJ-NGp" secondAttribute="leading" id="cW8-WG-N0l"/>
+                            <constraint firstItem="Qpi-6z-85A" firstAttribute="trailing" secondItem="ycn-FJ-NGp" secondAttribute="trailing" id="iZJ-eq-Wcg"/>
+                            <constraint firstItem="3XY-O5-z9B" firstAttribute="trailing" secondItem="ycn-FJ-NGp" secondAttribute="trailing" id="kPg-8F-izV"/>
+                            <constraint firstItem="Qpi-6z-85A" firstAttribute="centerX" secondItem="ycn-FJ-NGp" secondAttribute="centerX" id="kw7-pJ-Y1M"/>
+                            <constraint firstAttribute="bottom" secondItem="3XY-O5-z9B" secondAttribute="bottom" id="yYL-Eh-YxB"/>
+                            <constraint firstItem="3XY-O5-z9B" firstAttribute="top" secondItem="ycn-FJ-NGp" secondAttribute="top" id="z4i-ha-7We"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Scan Document" largeTitleDisplayMode="never" id="gDp-VJ-ya3"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="focusView" destination="Qpi-6z-85A" id="1qi-5b-e90"/>
+                        <outlet property="previewCamera" destination="3XY-O5-z9B" id="X2B-6n-WBu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6lp-1Z-CNw" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2121.739130434783" y="-573.21428571428567"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

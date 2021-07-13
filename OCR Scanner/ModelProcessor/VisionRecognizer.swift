@@ -15,12 +15,12 @@ import Vision
 
 
 // Protocol:
-protocol VisionRecognizer: AnyObject {
+protocol VisionRecognizerDelegate: AnyObject {
 
 }
 
 
-class VisionTextExtractor: ModelProcessorViewController {
+class VisionRecognizer: ModelProcessorViewController {
   
     
     // Enums:
