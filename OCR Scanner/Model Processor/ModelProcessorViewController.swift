@@ -75,7 +75,7 @@ class ModelProcessorViewController: UIViewController {
             
             // Calculate ROI:
             DispatchQueue.main.async {
-                //self.calculateRegionOfInterest()
+                self.calculateRegionOfInterest()
             }
         }
     }
@@ -85,7 +85,7 @@ class ModelProcessorViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         // Calculate ROI:
-        //calculateRegionOfInterest()
+        calculateRegionOfInterest()
         
         // Preview UI:
         self.previewLayer.frame = self.previewCamera.frame
@@ -187,17 +187,5 @@ class ModelProcessorViewController: UIViewController {
         let path = UIBezierPath(rect: focusView.frame)
         path.append(UIBezierPath(rect: focus))
         maskLayer.path = path.cgPath
-    }
-}
-
-
-// Extension:
-extension ModelProcessorViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
-    
-    // Extract Frames from Feed:
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
-        // Implementation in VisionRecognizer.swift
-        //print("Frame Received", Date())
     }
 }

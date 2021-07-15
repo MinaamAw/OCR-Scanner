@@ -71,3 +71,15 @@ class VisionRecognizer: ModelProcessorViewController {
     }
 
 }
+
+
+// Extension:
+extension ModelProcessorViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+    
+    // Extract Frames from Feed:
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
+        // Implementation in VisionRecognizer.swift
+        print("Frame Received", Date())
+    }
+}
