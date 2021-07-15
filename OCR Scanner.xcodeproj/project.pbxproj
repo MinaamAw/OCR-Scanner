@@ -62,6 +62,7 @@
 		302B30DC269CEF4600BB0287 = {
 			isa = PBXGroup;
 			children = (
+				30C941A026A058D20016D87D /* Frameworks */,
 				302B30E7269CEF4600BB0287 /* OCR Scanner */,
 				302B30E6269CEF4600BB0287 /* Products */,
 				30C9419D26A053A40016D87D /* .gitignore */,
@@ -128,6 +129,13 @@
 				302B310E269D6D0A00BB0287 /* CNICExtractor.swift */,
 			);
 			path = "Document Extractor";
+			sourceTree = "<group>";
+		};
+		30C941A026A058D20016D87D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		30FFA4F926A0321A004AA14E /* Template Matching */ = {
