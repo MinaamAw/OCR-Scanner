@@ -9,39 +9,13 @@
 */
 
 
+import Foundation
 import UIKit
 import AVFoundation
 import Vision
 
 
-// Protocol:
-protocol VisionRecognizerDelegate: AnyObject {
-
-}
-
-
 class VisionRecognizer: ModelProcessorViewController {
-  
-    
-    // Enums:
-    enum Candidate: Hashable {
-        case number(String), name(String)
-        case issueDate(DateComponents)
-        case expireDate(DateComponents)
-       }
-
-    
-    // Intialize:
-    typealias PredictedCount = Int
-    private var selectedCard = CreditCard()
-    
-    
-    // Properties
-    private var predictedCardInfo: [Candidate: PredictedCount] = [:]
-    private var dateCount = 0
-    private var intYear = 0
-    private var intExpYear = 0
-    
     
     // Detect Recentangle Object:
     private func detectRectangle(in image: CVPixelBuffer) {
@@ -62,14 +36,13 @@ class VisionRecognizer: ModelProcessorViewController {
                 request.maximumObservations = 1
                 request.minimumConfidence = 1.0
 
-                
                 let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: image, options: [:])
                 try? imageRequestHandler.perform([request])
     }
     
     
     // Draw Rectangle Box:
-    func drawBoundingBox(rect : VNRectangleObservation) {
+    private func drawBoundingBox(rect : VNRectangleObservation) {
             let transform = CGAffineTransform(scaleX: 1, y: -1).translatedBy(x: 0, y: -self.previewLayer.frame.height)
         let scale = CGAffineTransform.identity.scaledBy(x: self.previewLayer.frame.width, y: self.previewLayer.frame.height)
 
@@ -93,8 +66,20 @@ class VisionRecognizer: ModelProcessorViewController {
     
     
     // Remove Mask:
-    func removeMask() {
+    private func removeMask() {
             boundLayer.removeFromSuperlayer()
     }
 
+}
+
+
+// Extension:
+extension ModelProcessorViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+    
+    // Extract Frames from Feed:
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
+        // Implementation in VisionRecognizer.swift
+        print("Frame Received", Date())
+    }
 }
