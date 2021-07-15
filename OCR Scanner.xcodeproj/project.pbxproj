@@ -77,11 +77,10 @@
 			isa = PBXGroup;
 			children = (
 				302B30FE269D0BA900BB0287 /* Model */,
-				302B30FD269CF13100BB0287 /* Common */,
 				302B3103269D0E3500BB0287 /* ModelProcessor */,
 				302B3104269D0E5300BB0287 /* Document Extractor */,
 				302B3105269D0E6400BB0287 /* Representation */,
-				302B30FC269CF10100BB0287 /* Support Files */,
+				302B30FC269CF10100BB0287 /* Supporting Files */,
 				302B30E8269CEF4600BB0287 /* AppDelegate.swift */,
 				302B30EA269CEF4600BB0287 /* SceneDelegate.swift */,
 				302B30EC269CEF4600BB0287 /* ViewController.swift */,
@@ -90,21 +89,14 @@
 			path = "OCR Scanner";
 			sourceTree = "<group>";
 		};
-		302B30FC269CF10100BB0287 /* Support Files */ = {
+		302B30FC269CF10100BB0287 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				302B30F1269CEF4700BB0287 /* Assets.xcassets */,
-			);
-			path = "Support Files";
-			sourceTree = "<group>";
-		};
-		302B30FD269CF13100BB0287 /* Common */ = {
-			isa = PBXGroup;
-			children = (
 				302B30F3269CEF4700BB0287 /* LaunchScreen.storyboard */,
 				302B30EE269CEF4600BB0287 /* Main.storyboard */,
 			);
-			path = Common;
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		302B30FE269D0BA900BB0287 /* Model */ = {
