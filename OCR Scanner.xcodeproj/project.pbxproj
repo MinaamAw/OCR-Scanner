@@ -19,6 +19,7 @@
 		302B310D269D6CF700BB0287 /* CreditCardExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B310C269D6CF700BB0287 /* CreditCardExtractor.swift */; };
 		302B310F269D6D0A00BB0287 /* CNICExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B310E269D6D0A00BB0287 /* CNICExtractor.swift */; };
 		302B3112269D6F9D00BB0287 /* Reg in Frameworks */ = {isa = PBXBuildFile; productRef = 302B3111269D6F9D00BB0287 /* Reg */; };
+		30C9419E26A053A40016D87D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 30C9419D26A053A40016D87D /* .gitignore */; };
 		30FFA4FF26A0321A004AA14E /* FeatureExtraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30FFA4FB26A0321A004AA14E /* FeatureExtraction.cpp */; };
 		30FFA50026A0321A004AA14E /* VisionRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFA4FD26A0321A004AA14E /* VisionRecognizer.swift */; };
 		30FFA50126A0321A004AA14E /* ModelProcessorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFA4FE26A0321A004AA14E /* ModelProcessorViewController.swift */; };
@@ -38,6 +39,7 @@
 		302B310A269D6CE700BB0287 /* DocumentExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentExtractor.swift; sourceTree = "<group>"; };
 		302B310C269D6CF700BB0287 /* CreditCardExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardExtractor.swift; sourceTree = "<group>"; };
 		302B310E269D6D0A00BB0287 /* CNICExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNICExtractor.swift; sourceTree = "<group>"; };
+		30C9419D26A053A40016D87D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		30FFA4FA26A0321A004AA14E /* OCR Scanner-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OCR Scanner-Bridging-Header.h"; sourceTree = "<group>"; };
 		30FFA4FB26A0321A004AA14E /* FeatureExtraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeatureExtraction.cpp; sourceTree = "<group>"; };
 		30FFA4FC26A0321A004AA14E /* FeatureExtraction.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FeatureExtraction.hpp; sourceTree = "<group>"; };
@@ -61,7 +63,9 @@
 			isa = PBXGroup;
 			children = (
 				302B30E7269CEF4600BB0287 /* OCR Scanner */,
+				30C9419C26A053600016D87D /* Frameworks */,
 				302B30E6269CEF4600BB0287 /* Products */,
+				30C9419D26A053A40016D87D /* .gitignore */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,10 +83,7 @@
 				302B30FE269D0BA900BB0287 /* Model */,
 				302B3103269D0E3500BB0287 /* Model Processor */,
 				302B3104269D0E5300BB0287 /* Document Extractor */,
-				30C9418D26A035890016D87D /* Representation */,
 				302B30FC269CF10100BB0287 /* Supporting Files */,
-				302B30E8269CEF4600BB0287 /* AppDelegate.swift */,
-				302B30EA269CEF4600BB0287 /* SceneDelegate.swift */,
 				302B30EC269CEF4600BB0287 /* ViewController.swift */,
 				302B30F6269CEF4700BB0287 /* Info.plist */,
 			);
@@ -95,6 +96,8 @@
 				302B30F1269CEF4700BB0287 /* Assets.xcassets */,
 				302B30F3269CEF4700BB0287 /* LaunchScreen.storyboard */,
 				302B30EE269CEF4600BB0287 /* Main.storyboard */,
+				302B30E8269CEF4600BB0287 /* AppDelegate.swift */,
+				302B30EA269CEF4600BB0287 /* SceneDelegate.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -128,11 +131,11 @@
 			path = "Document Extractor";
 			sourceTree = "<group>";
 		};
-		30C9418D26A035890016D87D /* Representation */ = {
+		30C9419C26A053600016D87D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Representation;
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		30FFA4F926A0321A004AA14E /* Template Matching */ = {
@@ -208,6 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30C9419E26A053A40016D87D /* .gitignore in Resources */,
 				302B30F5269CEF4700BB0287 /* LaunchScreen.storyboard in Resources */,
 				302B30F2269CEF4700BB0287 /* Assets.xcassets in Resources */,
 				302B30F0269CEF4600BB0287 /* Main.storyboard in Resources */,

@@ -16,8 +16,8 @@ import Vision
 
 
 // Protocols:
-protocol ModelProcessor {
-    func hi()
+protocol ModelProcessorDelegate {
+    // Implement Protocol Here.
 }
 
 
