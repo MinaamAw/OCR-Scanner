@@ -2,7 +2,7 @@
  FeatureExtraction.cpp
  OCR Scanner
  
- Created by Minaam Ahmed Awan on 13/07/2021.
+ Created by Minaam Ahmed Awan on 14/07/2021.
  
  Abstract:
  Feature Extraction: Performs Feature Extraction through OpenCV Libraries.
@@ -11,7 +11,7 @@
 
 // Header Files
 #include "FeatureExtraction.hpp"
-#include "opencv2/core.hpp"
+//#include "opencv2/core.hpp"
 
 
 // Namespaces:
@@ -20,23 +20,36 @@ using namespace std;
 
 
 // Driver Code:
-int test() {
+
+// Convert Image to Greyscale:
+Mat FeatureExtraction::convert_image(Mat image) {
     
-    Mat color = imread("/Users/minaamawan/Desktop/Test.png");
+    // Initialize:
+    Mat greyscaleImg;
+    Mat resultImg;
     
-    if (color.empty()) {
-        cout << "No File";
-        
-        return 1;
-    }
+    // Convert Image to Greyscale:
+    cvtColor(image, greyscaleImg, CV_RGB2GRAY);
     
-    imshow("Display window", color);
+    return resultImg;
+}
+
+
+// Extract Features using ORB:
+Mat FeatureExtraction::extract_features(Mat resultImg) {
     
-    int k = waitKey(0); // Wait for a keystroke in the window
+    // Initialize:
+    vector<KeyPoint> keypoints;
+    Mat descriptors;
     
-    if(k == 's') {
-        imwrite("starry_night.png",color);
-    }
+    // Features to Extract: 1500.
+    Ptr<ORB> orb = ORB::create(1500);
     
-    return 0;
+    // Compute:
+    orb->detectAndCompute(resultImg, Mat(), keypoints, descriptors);
+    
+    // Matcher;
+    Ptr<DescriptorMatcher> bf = DescriptorMatcher::create(BFMatcher::BRUTEFORCE);
+    
+    return resultImg;
 }

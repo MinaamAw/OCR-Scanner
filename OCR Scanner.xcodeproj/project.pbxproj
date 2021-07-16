@@ -42,7 +42,7 @@
 		302B310E269D6D0A00BB0287 /* CNICExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNICExtractor.swift; sourceTree = "<group>"; };
 		30C9419D26A053A40016D87D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		30C941A126A059130016D87D /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
-		30FFA4FA26A0321A004AA14E /* FeatureExtraction Bridge */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "FeatureExtraction Bridge"; sourceTree = "<group>"; };
+		30FFA4FA26A0321A004AA14E /* FeatureExtractionBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FeatureExtractionBridge.mm; sourceTree = "<group>"; };
 		30FFA4FB26A0321A004AA14E /* FeatureExtraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeatureExtraction.cpp; sourceTree = "<group>"; };
 		30FFA4FC26A0321A004AA14E /* FeatureExtraction.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FeatureExtraction.hpp; sourceTree = "<group>"; };
 		30FFA4FD26A0321A004AA14E /* VisionRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionRecognizer.swift; sourceTree = "<group>"; };
@@ -145,9 +145,9 @@
 		30FFA4F926A0321A004AA14E /* Template Matching */ = {
 			isa = PBXGroup;
 			children = (
-				30FFA4FA26A0321A004AA14E /* FeatureExtraction Bridge */,
-				30FFA4FB26A0321A004AA14E /* FeatureExtraction.cpp */,
 				30FFA4FC26A0321A004AA14E /* FeatureExtraction.hpp */,
+				30FFA4FB26A0321A004AA14E /* FeatureExtraction.cpp */,
+				30FFA4FA26A0321A004AA14E /* FeatureExtractionBridge.mm */,
 			);
 			path = "Template Matching";
 			sourceTree = "<group>";
@@ -386,6 +386,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H8R8WQ57E9;
@@ -398,6 +399,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				"OTHER_CPLUSPLUSFLAGS[arch=*]" = "-fvisibility=hidden";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vikesyy.OCR-Scanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -410,6 +412,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H8R8WQ57E9;
@@ -421,6 +424,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fvisibility=hidden",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vikesyy.OCR-Scanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
