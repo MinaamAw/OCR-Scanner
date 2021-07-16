@@ -80,6 +80,8 @@ extension ModelProcessorViewController: AVCaptureVideoDataOutputSampleBufferDele
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
         // Implementation in VisionRecognizer.swift
-        print("Frame Received", Date())
+        //print("Frame Received", Date())
+        
+        
     }
 }

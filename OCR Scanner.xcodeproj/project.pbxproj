@@ -45,6 +45,7 @@
 		30C941A126A059130016D87D /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		30C941CB26A175910016D87D /* FeatureExtractionBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FeatureExtractionBridge.mm; sourceTree = "<group>"; };
 		30C941CD26A1824E0016D87D /* FeatureExtractionBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureExtractionBridge.h; sourceTree = "<group>"; };
+		30C941CE26A193AA0016D87D /* FEBridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEBridgeHeader.h; sourceTree = "<group>"; };
 		30FFA4FB26A0321A004AA14E /* FeatureExtraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeatureExtraction.cpp; sourceTree = "<group>"; };
 		30FFA4FC26A0321A004AA14E /* FeatureExtraction.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FeatureExtraction.hpp; sourceTree = "<group>"; };
 		30FFA4FD26A0321A004AA14E /* VisionRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionRecognizer.swift; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 				30FFA4FB26A0321A004AA14E /* FeatureExtraction.cpp */,
 				30C941CD26A1824E0016D87D /* FeatureExtractionBridge.h */,
 				30C941CB26A175910016D87D /* FeatureExtractionBridge.mm */,
+				30C941CE26A193AA0016D87D /* FEBridgeHeader.h */,
 			);
 			path = "Template Matching";
 			sourceTree = "<group>";
