@@ -9,10 +9,6 @@
  */
 
 
-#ifndef FeatureExtraction_hpp
-#define FeatureExtraction_hpp
-
-
 // Headers:
 #include <stdio.h>
 #include <opencv2/opencv.hpp>
@@ -28,13 +24,10 @@ using namespace std;
 class FeatureExtraction {
     
 public:
-    Mat extraction_result(Mat image);
+    void extraction_result(Mat imgSrc, Mat imgTrgt);
     
 private:
     Mat convert_image(Mat image);
     
-    Mat extract_features(Mat image);
+    bool extract_features(Mat imgSrc, Mat imgTrgt);
 };
-
-
-#endif /* FeatureExtraction_hpp */

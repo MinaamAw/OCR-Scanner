@@ -21,6 +21,7 @@
 		302B3112269D6F9D00BB0287 /* Reg in Frameworks */ = {isa = PBXBuildFile; productRef = 302B3111269D6F9D00BB0287 /* Reg */; };
 		30C9419E26A053A40016D87D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 30C9419D26A053A40016D87D /* .gitignore */; };
 		30C941A226A059130016D87D /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C941A126A059130016D87D /* opencv2.framework */; };
+		30C941CC26A175910016D87D /* FeatureExtractionBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 30C941CB26A175910016D87D /* FeatureExtractionBridge.mm */; };
 		30FFA4FF26A0321A004AA14E /* FeatureExtraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30FFA4FB26A0321A004AA14E /* FeatureExtraction.cpp */; };
 		30FFA50026A0321A004AA14E /* VisionRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFA4FD26A0321A004AA14E /* VisionRecognizer.swift */; };
 		30FFA50126A0321A004AA14E /* ModelProcessorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFA4FE26A0321A004AA14E /* ModelProcessorViewController.swift */; };
@@ -42,7 +43,8 @@
 		302B310E269D6D0A00BB0287 /* CNICExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNICExtractor.swift; sourceTree = "<group>"; };
 		30C9419D26A053A40016D87D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		30C941A126A059130016D87D /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
-		30FFA4FA26A0321A004AA14E /* FeatureExtractionBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FeatureExtractionBridge.mm; sourceTree = "<group>"; };
+		30C941CB26A175910016D87D /* FeatureExtractionBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FeatureExtractionBridge.mm; sourceTree = "<group>"; };
+		30C941CD26A1824E0016D87D /* FeatureExtractionBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureExtractionBridge.h; sourceTree = "<group>"; };
 		30FFA4FB26A0321A004AA14E /* FeatureExtraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeatureExtraction.cpp; sourceTree = "<group>"; };
 		30FFA4FC26A0321A004AA14E /* FeatureExtraction.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FeatureExtraction.hpp; sourceTree = "<group>"; };
 		30FFA4FD26A0321A004AA14E /* VisionRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionRecognizer.swift; sourceTree = "<group>"; };
@@ -147,7 +149,8 @@
 			children = (
 				30FFA4FC26A0321A004AA14E /* FeatureExtraction.hpp */,
 				30FFA4FB26A0321A004AA14E /* FeatureExtraction.cpp */,
-				30FFA4FA26A0321A004AA14E /* FeatureExtractionBridge.mm */,
+				30C941CD26A1824E0016D87D /* FeatureExtractionBridge.h */,
+				30C941CB26A175910016D87D /* FeatureExtractionBridge.mm */,
 			);
 			path = "Template Matching";
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30FFA50126A0321A004AA14E /* ModelProcessorViewController.swift in Sources */,
+				30C941CC26A175910016D87D /* FeatureExtractionBridge.mm in Sources */,
 				302B310D269D6CF700BB0287 /* CreditCardExtractor.swift in Sources */,
 				30FFA4FF26A0321A004AA14E /* FeatureExtraction.cpp in Sources */,
 				302B3102269D0C3E00BB0287 /* CNIC.swift in Sources */,
