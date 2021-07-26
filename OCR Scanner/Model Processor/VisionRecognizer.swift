@@ -18,7 +18,7 @@ import Vision
 class VisionRecognizer: ModelProcessorViewController {
     
     // Detect Recentangle Object:
-    private func detectRectangle(in image: CVPixelBuffer) {
+    public func detectRectangle(in image: CVPixelBuffer) {
         let request = VNDetectRectanglesRequest(completionHandler: { (request: VNRequest, error: Error?) in
             
             DispatchQueue.main.async {
@@ -69,7 +69,6 @@ class VisionRecognizer: ModelProcessorViewController {
     private func removeMask() {
             boundLayer.removeFromSuperlayer()
     }
-
 }
 
 
@@ -82,6 +81,29 @@ extension ModelProcessorViewController: AVCaptureVideoDataOutputSampleBufferDele
         // Implementation in VisionRecognizer.swift
         //print("Frame Received", Date())
         
+        // Convert Frames to UIImage:
+        guard let  imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        CVPixelBufferLockBaseAddress(imageBuffer, CVPixelBufferLockFlags.readOnly)
+        let baseAddress = CVPixelBufferGetBaseAddress(imageBuffer)
+        let bytesPerRow = CVPixelBufferGetBytesPerRow(imageBuffer)
+        let width = CVPixelBufferGetWidth(imageBuffer)
+        let height = CVPixelBufferGetHeight(imageBuffer)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        var bitmapInfo: UInt32 = CGBitmapInfo.byteOrder32Little.rawValue
+        bitmapInfo |= CGImageAlphaInfo.premultipliedFirst.rawValue & CGBitmapInfo.alphaInfoMask.rawValue
+        let context = CGContext(data: baseAddress, width: width, height: height, bitsPerComponent: 8, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo)
+        guard let quartzImage = context?.makeImage() else { return }
+        CVPixelBufferUnlockBaseAddress(imageBuffer, CVPixelBufferLockFlags.readOnly)
+        let trgtImage = UIImage(cgImage: quartzImage)
         
+              
+        let srcImg = #imageLiteral(resourceName: "CNICFormat")
+        //let filteredImage = #imageLiteral(resourceName: "trgtImage")
+        var temp = false
+        
+        temp = FeatureExtractionBridge().extraction_result(srcImg, targetImage: trgtImage)
+        if temp == true {
+            print("Done")
+        }
     }
 }

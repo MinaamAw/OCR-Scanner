@@ -31,6 +31,7 @@ class ModelProcessorViewController: UIViewController {
     // Camera Capture Session & Output Preview:
     let captureSession = AVCaptureSession()
     let videoOutput = AVCaptureVideoDataOutput()
+    let context = CIContext()
     var captureDevice: AVCaptureDevice?
     public lazy var previewLayer: AVCaptureVideoPreviewLayer = {
         let preview = AVCaptureVideoPreviewLayer(session: self.captureSession)
@@ -134,6 +135,7 @@ class ModelProcessorViewController: UIViewController {
     func addVideoOutput() {
         
         // Frame Settings:
+        videoOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString) : NSNumber(value: kCVPixelFormatType_32BGRA)] as [String : Any]
         videoOutput.alwaysDiscardsLateVideoFrames = true
         videoOutput.setSampleBufferDelegate(self, queue: videoOutputQueue)
         captureSession.addOutput(self.videoOutput)

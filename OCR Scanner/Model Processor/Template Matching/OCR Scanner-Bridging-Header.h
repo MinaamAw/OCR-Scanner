@@ -1,6 +1,6 @@
 
 /*
- FEBridgeHeader.mm
+ OCR Scanner-Bridging-Header.h
  OCR Scanner
  
  Created by Minaam Ahmed Awan on 16/07/2021.

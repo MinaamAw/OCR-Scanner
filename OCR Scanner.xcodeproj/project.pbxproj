@@ -45,7 +45,7 @@
 		30C941A126A059130016D87D /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		30C941CB26A175910016D87D /* FeatureExtractionBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FeatureExtractionBridge.mm; sourceTree = "<group>"; };
 		30C941CD26A1824E0016D87D /* FeatureExtractionBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureExtractionBridge.h; sourceTree = "<group>"; };
-		30C941CE26A193AA0016D87D /* FEBridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEBridgeHeader.h; sourceTree = "<group>"; };
+		30C941CE26A193AA0016D87D /* OCR Scanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCR Scanner-Bridging-Header.h"; sourceTree = "<group>"; };
 		30FFA4FB26A0321A004AA14E /* FeatureExtraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeatureExtraction.cpp; sourceTree = "<group>"; };
 		30FFA4FC26A0321A004AA14E /* FeatureExtraction.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FeatureExtraction.hpp; sourceTree = "<group>"; };
 		30FFA4FD26A0321A004AA14E /* VisionRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionRecognizer.swift; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 				30FFA4FB26A0321A004AA14E /* FeatureExtraction.cpp */,
 				30C941CD26A1824E0016D87D /* FeatureExtractionBridge.h */,
 				30C941CB26A175910016D87D /* FeatureExtractionBridge.mm */,
-				30C941CE26A193AA0016D87D /* FEBridgeHeader.h */,
+				30C941CE26A193AA0016D87D /* OCR Scanner-Bridging-Header.h */,
 			);
 			path = "Template Matching";
 			sourceTree = "<group>";
@@ -328,6 +328,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -382,6 +383,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -408,6 +410,7 @@
 				"OTHER_CPLUSPLUSFLAGS[arch=*]" = "-fvisibility=hidden";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vikesyy.OCR-Scanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OCR Scanner/Model Processor/Template Matching/OCR Scanner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -437,6 +440,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vikesyy.OCR-Scanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OCR Scanner/Model Processor/Template Matching/OCR Scanner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

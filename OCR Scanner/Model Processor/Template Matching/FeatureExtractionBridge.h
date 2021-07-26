@@ -10,13 +10,12 @@
 
 
 // Headers:
-#import <opencv2/opencv.hpp>
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 
 @interface FeatureExtractionBridge : NSObject
 
-- (void)extraction_result:(UIImage *)srcImg targetImage:(UIImage *) trgtImg;
+- (bool)extraction_result:(UIImage *)srcImg targetImage:(UIImage *) trgtImg;
 
 @end

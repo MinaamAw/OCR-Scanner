@@ -24,7 +24,7 @@ using namespace std;
 class FeatureExtraction {
     
 public:
-    void extraction_result(Mat imgSrc, Mat imgTrgt);
+    bool extraction_result(Mat imgSrc, Mat imgTrgt);
     
 private:
     Mat convert_image(Mat image);

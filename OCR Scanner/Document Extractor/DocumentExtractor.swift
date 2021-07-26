@@ -15,5 +15,4 @@ import Vision
 
 class DocumentExtractor {
     
-    // Template Matching
 }
