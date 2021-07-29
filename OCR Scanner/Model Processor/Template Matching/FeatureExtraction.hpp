@@ -29,5 +29,7 @@ public:
 private:
     Mat convert_image(Mat image);
     
+    Mat convert_image_bgr(Mat image);
+    
     bool extract_features(Mat imgSrc, Mat imgTrgt);
 };
