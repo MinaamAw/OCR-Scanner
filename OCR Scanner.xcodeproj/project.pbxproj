@@ -19,15 +19,12 @@
 		302B310D269D6CF700BB0287 /* CreditCardExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B310C269D6CF700BB0287 /* CreditCardExtractor.swift */; };
 		302B310F269D6D0A00BB0287 /* CNICExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B310E269D6D0A00BB0287 /* CNICExtractor.swift */; };
 		302B3112269D6F9D00BB0287 /* Reg in Frameworks */ = {isa = PBXBuildFile; productRef = 302B3111269D6F9D00BB0287 /* Reg */; };
-		304826BB26B08E98000873CE /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304826BA26B08E98000873CE /* Test.swift */; };
 		304826BD26B09DA1000873CE /* ModelProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304826BC26B09DA1000873CE /* ModelProcessor.swift */; };
-		304826BF26B09E5D000873CE /* VisionTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304826BE26B09E5D000873CE /* VisionTextRecognizer.swift */; };
 		304826C126B0ABE6000873CE /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304826C026B0ABE6000873CE /* CameraView.swift */; };
 		30C9419E26A053A40016D87D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 30C9419D26A053A40016D87D /* .gitignore */; };
 		30C941A226A059130016D87D /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C941A126A059130016D87D /* opencv2.framework */; };
 		30C941CC26A175910016D87D /* FeatureExtractionBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 30C941CB26A175910016D87D /* FeatureExtractionBridge.mm */; };
 		30FFA4FF26A0321A004AA14E /* FeatureExtraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30FFA4FB26A0321A004AA14E /* FeatureExtraction.cpp */; };
-		30FFA50026A0321A004AA14E /* VisionRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFA4FD26A0321A004AA14E /* VisionRecognizer.swift */; };
 		30FFA50126A0321A004AA14E /* ModelProcessorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFA4FE26A0321A004AA14E /* ModelProcessorViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,9 +42,7 @@
 		302B310A269D6CE700BB0287 /* DocumentExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentExtractor.swift; sourceTree = "<group>"; };
 		302B310C269D6CF700BB0287 /* CreditCardExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardExtractor.swift; sourceTree = "<group>"; };
 		302B310E269D6D0A00BB0287 /* CNICExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNICExtractor.swift; sourceTree = "<group>"; };
-		304826BA26B08E98000873CE /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		304826BC26B09DA1000873CE /* ModelProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProcessor.swift; sourceTree = "<group>"; };
-		304826BE26B09E5D000873CE /* VisionTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionTextRecognizer.swift; sourceTree = "<group>"; };
 		304826C026B0ABE6000873CE /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		30C9419D26A053A40016D87D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		30C941A126A059130016D87D /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
@@ -56,7 +51,6 @@
 		30C941CE26A193AA0016D87D /* OCR Scanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCR Scanner-Bridging-Header.h"; sourceTree = "<group>"; };
 		30FFA4FB26A0321A004AA14E /* FeatureExtraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeatureExtraction.cpp; sourceTree = "<group>"; };
 		30FFA4FC26A0321A004AA14E /* FeatureExtraction.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FeatureExtraction.hpp; sourceTree = "<group>"; };
-		30FFA4FD26A0321A004AA14E /* VisionRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionRecognizer.swift; sourceTree = "<group>"; };
 		30FFA4FE26A0321A004AA14E /* ModelProcessorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelProcessorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,10 +89,11 @@
 			isa = PBXGroup;
 			children = (
 				302B30FE269D0BA900BB0287 /* Model */,
+				30333E2526B2A4EA008FA715 /* Controller */,
 				302B3103269D0E3500BB0287 /* Model Processor */,
 				302B3104269D0E5300BB0287 /* Document Extractor */,
+				30FFA4F926A0321A004AA14E /* Template Matching */,
 				302B30FC269CF10100BB0287 /* Supporting Files */,
-				302B30EC269CEF4600BB0287 /* ViewController.swift */,
 				302B30F6269CEF4700BB0287 /* Info.plist */,
 			);
 			path = "OCR Scanner";
@@ -128,13 +123,7 @@
 		302B3103269D0E3500BB0287 /* Model Processor */ = {
 			isa = PBXGroup;
 			children = (
-				30FFA4F926A0321A004AA14E /* Template Matching */,
-				30FFA4FE26A0321A004AA14E /* ModelProcessorViewController.swift */,
-				304826BE26B09E5D000873CE /* VisionTextRecognizer.swift */,
-				304826BA26B08E98000873CE /* Test.swift */,
-				30FFA4FD26A0321A004AA14E /* VisionRecognizer.swift */,
 				304826BC26B09DA1000873CE /* ModelProcessor.swift */,
-				304826C026B0ABE6000873CE /* CameraView.swift */,
 			);
 			path = "Model Processor";
 			sourceTree = "<group>";
@@ -147,6 +136,16 @@
 				302B310E269D6D0A00BB0287 /* CNICExtractor.swift */,
 			);
 			path = "Document Extractor";
+			sourceTree = "<group>";
+		};
+		30333E2526B2A4EA008FA715 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				302B30EC269CEF4600BB0287 /* ViewController.swift */,
+				30FFA4FE26A0321A004AA14E /* ModelProcessorViewController.swift */,
+				304826C026B0ABE6000873CE /* CameraView.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		30C941A026A058D20016D87D /* Frameworks */ = {
@@ -248,17 +247,14 @@
 			files = (
 				30FFA50126A0321A004AA14E /* ModelProcessorViewController.swift in Sources */,
 				30C941CC26A175910016D87D /* FeatureExtractionBridge.mm in Sources */,
-				304826BF26B09E5D000873CE /* VisionTextRecognizer.swift in Sources */,
 				302B310D269D6CF700BB0287 /* CreditCardExtractor.swift in Sources */,
 				30FFA4FF26A0321A004AA14E /* FeatureExtraction.cpp in Sources */,
 				302B3102269D0C3E00BB0287 /* CNIC.swift in Sources */,
 				302B30ED269CEF4600BB0287 /* ViewController.swift in Sources */,
 				304826BD26B09DA1000873CE /* ModelProcessor.swift in Sources */,
-				304826BB26B08E98000873CE /* Test.swift in Sources */,
 				302B310F269D6D0A00BB0287 /* CNICExtractor.swift in Sources */,
 				302B3100269D0BE000BB0287 /* CreditCard.swift in Sources */,
 				302B310B269D6CE700BB0287 /* DocumentExtractor.swift in Sources */,
-				30FFA50026A0321A004AA14E /* VisionRecognizer.swift in Sources */,
 				302B30E9269CEF4600BB0287 /* AppDelegate.swift in Sources */,
 				302B30EB269CEF4600BB0287 /* SceneDelegate.swift in Sources */,
 				304826C126B0ABE6000873CE /* CameraView.swift in Sources */,
@@ -426,7 +422,7 @@
 				"OTHER_CPLUSPLUSFLAGS[arch=*]" = "-fvisibility=hidden";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vikesyy.OCR-Scanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "OCR Scanner/Model Processor/Template Matching/OCR Scanner-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "OCR Scanner/Template Matching/OCR Scanner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -456,7 +452,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vikesyy.OCR-Scanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "OCR Scanner/Model Processor/Template Matching/OCR Scanner-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "OCR Scanner/Template Matching/OCR Scanner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
