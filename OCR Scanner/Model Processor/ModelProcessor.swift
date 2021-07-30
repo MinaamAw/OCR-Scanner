@@ -5,21 +5,29 @@
  Created by Minaam Ahmed Awan on 11/07/2021.
  
  Abstract:
- Model Processor: CHANGE.
+ Model Processor: Parent & Abstract Class.
  */
 
 
-import UIKit
-import AVFoundation
-import Vision
-
-
-// Protocols:
-public protocol ModelProcessorProtocol {
-    // funct
+protocol ModelProcessorProtocol {
+    
+    // Methods:
+    func analyzeImage(extractedImage: CGImage) -> String?
 }
 
 
-class ModelProcessor {
+open class ModelProcessor: ModelProcessorProtocol {
     
+    // Initialize:
+    private var extractedImage: CGImage?
+    private var imageKind: ImageKind?
+    
+    
+    // Methods:
+    public func analyzeImage(extractedImage: CGImage) -> String? {
+        
+        // Definition in Child-Class.
+        
+        return nil
+    }
 }

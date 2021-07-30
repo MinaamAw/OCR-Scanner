@@ -14,11 +14,11 @@ import Foundation
 
 public struct CreditCard {
     
-    public var cardNumber: String?
+    public var cardNumber: String
     
-    public var issueDate: DateComponents?
+    public var issueDate: DateComponents
     
-    public var expireDate: DateComponents?
+    public var expireDate: DateComponents
     
-    public var holderName: String?
+    public var holderName: String
 }

@@ -5,15 +5,10 @@
  Created by Minaam Ahmed Awan on 11/07/2021.
  
  Abstract:
-    CNIC Extractor: OCR Method to Detect Text by the use of Frames Extracted from Feed using Vision Framework.
+    CNIC Extractor: Generate Key Value Pairs from Extracted Text.
 */
 
 
-import Foundation
-import Vision
-
-
-class CNICExtractor: DocumentExtractor {
+final class CNICExtractor {
     
-    // Business Logic for CNIC Extraction.
 }

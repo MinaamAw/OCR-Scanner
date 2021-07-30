@@ -1,18 +1,26 @@
 /*
  DocumentExtractor.swift
  OCR Scanner
-
+ 
  Created by Minaam Ahmed Awan on 11/07/2021.
  
  Abstract:
-    Document Extractor: Base Class for Extraction which will deal with differentiating Object Types.
-*/
+ Document Extractor: Parent & Abstract Class.
+ */
 
 
-import Foundation
-import Vision
+protocol DocumentExtractorProtocol {
+        
+    // Method:
+    func extractionHandler(_ documentKind: ImageKind, _ extractedText: String)
+}
 
 
-class DocumentExtractor {
+open class DocumentExtractor: DocumentExtractorProtocol {
     
+    // Method:
+    public func extractionHandler(_ documentKind: ImageKind, _ extractedText: String) {
+     
+        // Definition in Child Class.
+    }
 }

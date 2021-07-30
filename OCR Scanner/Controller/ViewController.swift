@@ -5,7 +5,7 @@
  Created by Minaam Ahmed Awan on 11/07/2021.
 
  Abstract:
- Main view controller: Handles Scan Button Action and Displays Saved Scans.
+ Main View Controller: Handles Scan Button Action and Displays Saved Scans.
 */
 
 

@@ -5,7 +5,7 @@
  Created by Minaam Ahmed Awan on 28/07/2021.
  
  Abstract:
- Model Processor: CHANGE.
+ Camera View: Responsible for Frame Extraction, Bounding Box and Image Cropping.
  */
 
 
@@ -17,7 +17,8 @@ import VideoToolbox
 
 // Protocols:
 public protocol CameraViewDelegate: AnyObject {
-    // Delegate Functions here:
+    
+    func processImage(extractedImage: CGImage)
 }
 
 
@@ -33,7 +34,7 @@ final class CameraView: UIView {
     private var bufferAspectRatio: Double!
     private var previewCamera: UIView!
     private var focusView: UIView!
-    var croppedImage: UIImage?
+    private var croppedImage: UIImage?
     private var cgImage: CGImage?
     
     
@@ -308,17 +309,20 @@ extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
         guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         
         // Detect Card & Crop:
-        guard let extractedFrame = detectRectangle(in: imageBuffer) else { return }
+        guard let extractedImg = detectRectangle(in: imageBuffer) else { return }
         
         // Template Matcher:
         let srcImg = #imageLiteral(resourceName: "CNICFormat")
+        //let extractedFrame = #imageLiteral(resourceName: "CNIC Test")
         var cardType = false
         
-        cardType = FeatureExtractionBridge().extraction_result(srcImg, targetImage: extractedFrame)
-        self.croppedImage = nil
+        cardType = FeatureExtractionBridge().extraction_result(srcImg, targetImage: extractedImg)
         
         if cardType == true {
-            print("CNIC")
+            UIImageWriteToSavedPhotosAlbum(extractedImg, nil, nil, nil)
+            delegate?.processImage(extractedImage: extractedImg.cgImage!)
         }
+        
+        self.croppedImage = nil
     }
 }

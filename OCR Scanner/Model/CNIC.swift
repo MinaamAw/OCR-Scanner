@@ -14,17 +14,17 @@ import Foundation
 
 public struct CNIC {
     
-    public var holderName: String?
+    public var holderName: String
     
-    public var fatherName: String?
+    public var fatherName: String
     
-    public var gender: String?
+    public var gender: String
     
-    public var countryStay: String?
+    public var countryStay: String
     
-    public var identityNumber: String?
+    public var identityNumber: String
 
-    public var birthDate: DateComponents?
+    public var birthDate: DateComponents
     
     public var issueDate: DateComponents?
     

@@ -5,7 +5,7 @@
  Created by Minaam Ahmed Awan on 11/07/2021.
  
  Abstract:
- Model Processor View Controller: Handles Camera I/O, OCR ROI and Bounding Box.
+ Model Processor View Controller: Handles Camera View & Model Processor.
  */
 
 
@@ -16,8 +16,8 @@ import Vision
 
 
 // Protocols:
-protocol ModelProcessorDelegate {
-    // Implement Protocol Here
+public protocol ModelProcessorDelegate {
+    // Implement Protocol Here:
 }
 
 
@@ -85,5 +85,24 @@ class ModelProcessorViewController: UIViewController, AVCaptureVideoDataOutputSa
 
 // MARK: Extension CameraViewDelegate:
 extension ModelProcessorViewController: CameraViewDelegate {
-    
+    internal func processImage(extractedImage: CGImage) {
+        
+        // Camera Session:
+        DispatchQueue.main.async {
+            self.cameraView.stopSession()
+        }
+        
+        // Model Processor:
+        let modelProcessor = BaseTextRecognizer()
+        guard let extractedRawText = modelProcessor.analyzeImage(extractedImage: extractedImage) else { return }
+        
+        
+        // DocumentExtractor:
+        //let textExtractor = BaseDocumentExtractor()
+        let creditCardExtractor = CreditCardExtractor()
+        //let str = "minaam\nmastercard\nlol"
+        //textExtractor.extractionHandler(.cnic, str)
+        
+        let text = creditCardExtractor.wordsToSkip(extractedRawText)
+    }
 }

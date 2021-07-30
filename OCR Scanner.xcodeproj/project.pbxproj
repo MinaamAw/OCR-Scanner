@@ -19,11 +19,16 @@
 		302B310D269D6CF700BB0287 /* CreditCardExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B310C269D6CF700BB0287 /* CreditCardExtractor.swift */; };
 		302B310F269D6D0A00BB0287 /* CNICExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B310E269D6D0A00BB0287 /* CNICExtractor.swift */; };
 		302B3112269D6F9D00BB0287 /* Reg in Frameworks */ = {isa = PBXBuildFile; productRef = 302B3111269D6F9D00BB0287 /* Reg */; };
+		30333E2726B2B2D1008FA715 /* ImageKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30333E2626B2B2D1008FA715 /* ImageKind.swift */; };
+		30333E2926B2B9E8008FA715 /* BaseTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30333E2826B2B9E8008FA715 /* BaseTextRecognizer.swift */; };
+		30333E2C26B2BA02008FA715 /* MLKitTextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30333E2B26B2BA02008FA715 /* MLKitTextRecognizer.swift */; };
 		304826BD26B09DA1000873CE /* ModelProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304826BC26B09DA1000873CE /* ModelProcessor.swift */; };
 		304826C126B0ABE6000873CE /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304826C026B0ABE6000873CE /* CameraView.swift */; };
 		30C9419E26A053A40016D87D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 30C9419D26A053A40016D87D /* .gitignore */; };
 		30C941A226A059130016D87D /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C941A126A059130016D87D /* opencv2.framework */; };
 		30C941CC26A175910016D87D /* FeatureExtractionBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 30C941CB26A175910016D87D /* FeatureExtractionBridge.mm */; };
+		30EFAB0626B3E93D004412BC /* BaseDocumentTextExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EFAB0526B3E93D004412BC /* BaseDocumentTextExtractor.swift */; };
+		30EFAB0826B3F07E004412BC /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EFAB0726B3F07E004412BC /* Misc.swift */; };
 		30FFA4FF26A0321A004AA14E /* FeatureExtraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30FFA4FB26A0321A004AA14E /* FeatureExtraction.cpp */; };
 		30FFA50126A0321A004AA14E /* ModelProcessorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFA4FE26A0321A004AA14E /* ModelProcessorViewController.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +47,9 @@
 		302B310A269D6CE700BB0287 /* DocumentExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentExtractor.swift; sourceTree = "<group>"; };
 		302B310C269D6CF700BB0287 /* CreditCardExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardExtractor.swift; sourceTree = "<group>"; };
 		302B310E269D6D0A00BB0287 /* CNICExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNICExtractor.swift; sourceTree = "<group>"; };
+		30333E2626B2B2D1008FA715 /* ImageKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageKind.swift; sourceTree = "<group>"; };
+		30333E2826B2B9E8008FA715 /* BaseTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextRecognizer.swift; sourceTree = "<group>"; };
+		30333E2B26B2BA02008FA715 /* MLKitTextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLKitTextRecognizer.swift; sourceTree = "<group>"; };
 		304826BC26B09DA1000873CE /* ModelProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProcessor.swift; sourceTree = "<group>"; };
 		304826C026B0ABE6000873CE /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		30C9419D26A053A40016D87D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -49,6 +57,8 @@
 		30C941CB26A175910016D87D /* FeatureExtractionBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FeatureExtractionBridge.mm; sourceTree = "<group>"; };
 		30C941CD26A1824E0016D87D /* FeatureExtractionBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureExtractionBridge.h; sourceTree = "<group>"; };
 		30C941CE26A193AA0016D87D /* OCR Scanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCR Scanner-Bridging-Header.h"; sourceTree = "<group>"; };
+		30EFAB0526B3E93D004412BC /* BaseDocumentTextExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDocumentTextExtractor.swift; sourceTree = "<group>"; };
+		30EFAB0726B3F07E004412BC /* Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		30FFA4FB26A0321A004AA14E /* FeatureExtraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeatureExtraction.cpp; sourceTree = "<group>"; };
 		30FFA4FC26A0321A004AA14E /* FeatureExtraction.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FeatureExtraction.hpp; sourceTree = "<group>"; };
 		30FFA4FE26A0321A004AA14E /* ModelProcessorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelProcessorViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +126,7 @@
 			children = (
 				302B30FF269D0BE000BB0287 /* CreditCard.swift */,
 				302B3101269D0C3E00BB0287 /* CNIC.swift */,
+				30333E2626B2B2D1008FA715 /* ImageKind.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				304826BC26B09DA1000873CE /* ModelProcessor.swift */,
+				30333E2826B2B9E8008FA715 /* BaseTextRecognizer.swift */,
+				30333E2B26B2BA02008FA715 /* MLKitTextRecognizer.swift */,
 			);
 			path = "Model Processor";
 			sourceTree = "<group>";
@@ -132,8 +145,10 @@
 			isa = PBXGroup;
 			children = (
 				302B310A269D6CE700BB0287 /* DocumentExtractor.swift */,
+				30EFAB0526B3E93D004412BC /* BaseDocumentTextExtractor.swift */,
 				302B310C269D6CF700BB0287 /* CreditCardExtractor.swift */,
 				302B310E269D6D0A00BB0287 /* CNICExtractor.swift */,
+				30EFAB0726B3F07E004412BC /* Misc.swift */,
 			);
 			path = "Document Extractor";
 			sourceTree = "<group>";
@@ -247,9 +262,13 @@
 			files = (
 				30FFA50126A0321A004AA14E /* ModelProcessorViewController.swift in Sources */,
 				30C941CC26A175910016D87D /* FeatureExtractionBridge.mm in Sources */,
+				30333E2C26B2BA02008FA715 /* MLKitTextRecognizer.swift in Sources */,
+				30EFAB0826B3F07E004412BC /* Misc.swift in Sources */,
 				302B310D269D6CF700BB0287 /* CreditCardExtractor.swift in Sources */,
 				30FFA4FF26A0321A004AA14E /* FeatureExtraction.cpp in Sources */,
 				302B3102269D0C3E00BB0287 /* CNIC.swift in Sources */,
+				30333E2926B2B9E8008FA715 /* BaseTextRecognizer.swift in Sources */,
+				30333E2726B2B2D1008FA715 /* ImageKind.swift in Sources */,
 				302B30ED269CEF4600BB0287 /* ViewController.swift in Sources */,
 				304826BD26B09DA1000873CE /* ModelProcessor.swift in Sources */,
 				302B310F269D6D0A00BB0287 /* CNICExtractor.swift in Sources */,
@@ -258,6 +277,7 @@
 				302B30E9269CEF4600BB0287 /* AppDelegate.swift in Sources */,
 				302B30EB269CEF4600BB0287 /* SceneDelegate.swift in Sources */,
 				304826C126B0ABE6000873CE /* CameraView.swift in Sources */,
+				30EFAB0626B3E93D004412BC /* BaseDocumentTextExtractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
