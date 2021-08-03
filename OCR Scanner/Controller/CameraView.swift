@@ -160,6 +160,10 @@ final class CameraView: UIView {
         videoPreviewLayer.frame = previewCamera.frame
     }
     
+    public func processModel() {
+        self.maskLayer.removeFromSuperlayer()
+        self.boundLayer.removeFromSuperlayer()
+    }
     
     // MARK: Calculate ROI:
     public func calculateRegionOfInterest() {
@@ -197,6 +201,7 @@ final class CameraView: UIView {
     // MARK: Rectangle Detection & Bounding Box:
     private func detectRectangle(in image: CVPixelBuffer) -> UIImage? {
         
+        // Vision Request:
         let request = VNDetectRectanglesRequest(completionHandler: { (request: VNRequest, error: Error?) in
             
             DispatchQueue.main.async {
@@ -204,17 +209,20 @@ final class CameraView: UIView {
                 self.removeMask()
                 
                 guard let rect = results.first else { return }
+                
                 self.drawBoundingBox(rect: rect)
                 self.croppedImage = self.cropImage(rect, from: image)
             }
         })
         
+        // Request Properties:
         request.minimumAspectRatio = VNAspectRatio(1.3)
         request.maximumAspectRatio = VNAspectRatio(1.6)
         request.minimumSize = Float(0.5)
         request.maximumObservations = 1
         request.minimumConfidence = 1.0
         request.regionOfInterest = self.regionOfInterest
+        request.quadratureTolerance = 10
         
         let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: image, options: [:])
         try? imageRequestHandler.perform([request])
@@ -225,6 +233,7 @@ final class CameraView: UIView {
     
     // Draw Rectangle Box:
     private func drawBoundingBox(rect : VNRectangleObservation) {
+        
         let transform = CGAffineTransform(scaleX: 1, y: -1).translatedBy(x: 0, y: -self.videoPreviewLayer.frame.height)
         let scale = CGAffineTransform.identity.scaledBy(x: self.videoPreviewLayer.frame.width, y: self.videoPreviewLayer.frame.height)
         
@@ -253,6 +262,8 @@ final class CameraView: UIView {
         let context = CIContext(options: nil)
         let cgImage = context.createCGImage(ciImage, from: ciImage.extent)
         let croppedImg = UIImage(cgImage: cgImage!)
+        
+        // Save to Gallery:
         //UIImageWriteToSavedPhotosAlbum(croppedImg, nil, nil, nil)
         
         return croppedImg
@@ -268,7 +279,8 @@ final class CameraView: UIView {
         boundLayer.borderColor = UIColor.green.cgColor
         boundLayer.borderWidth = 5.0
         
-        videoPreviewLayer.insertSublayer(boundLayer, at: 1)
+        
+        self.videoPreviewLayer.insertSublayer(self.boundLayer, at: 1)
     }
     
     
@@ -285,7 +297,7 @@ final class CameraView: UIView {
     
     
     // Remove Mask:
-    private func removeMask() {
+    public func removeMask() {
         boundLayer.removeFromSuperlayer()
     }
 }
@@ -318,9 +330,13 @@ extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         cardType = FeatureExtractionBridge().extraction_result(srcImg, targetImage: extractedImg)
         
+        // Condition Handler:
         if cardType == true {
             UIImageWriteToSavedPhotosAlbum(extractedImg, nil, nil, nil)
             delegate?.processImage(extractedImage: extractedImg.cgImage!)
+        }
+        else {
+            return
         }
         
         self.croppedImage = nil

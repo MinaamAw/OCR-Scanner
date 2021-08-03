@@ -15,17 +15,12 @@ import AVFoundation
 import Vision
 
 
-// Protocols:
-public protocol ModelProcessorDelegate {
-    // Implement Protocol Here:
-}
-
-
 class ModelProcessorViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     // IBOutlets:
     @IBOutlet weak var previewCamera: UIView!
     @IBOutlet weak var focusView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     // Initialize:
@@ -47,11 +42,11 @@ class ModelProcessorViewController: UIViewController, AVCaptureVideoDataOutputSa
         super.viewDidLoad()
         
         // Call Methods:
-        setupUI()
-        cameraView.setupCamera()
-        cameraView.addPreviewLayer()
+        self.setupUI()
+        self.cameraView.setupCamera()
         
         DispatchQueue.main.async {
+            self.cameraView.addPreviewLayer()
             self.cameraView.calculateRegionOfInterest()
         }
     }
@@ -75,6 +70,9 @@ class ModelProcessorViewController: UIViewController, AVCaptureVideoDataOutputSa
     // Setup UI:
     func setupUI() {
         // Setup UI In Controller:
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.stopAnimating()
+        
         focusView.backgroundColor = UIColor.gray.withAlphaComponent(0.9)
         maskLayer.backgroundColor = UIColor.clear.cgColor
         maskLayer.fillRule = .evenOdd
@@ -89,20 +87,26 @@ extension ModelProcessorViewController: CameraViewDelegate {
         
         // Camera Session:
         DispatchQueue.main.async {
+            
+            // Camera View:
             self.cameraView.stopSession()
+            self.cameraView.processModel()
+            
+            self.previewCamera.layer.removeFromSuperlayer()
+            self.focusView.backgroundColor = .systemBackground
+            self.activityIndicator.startAnimating()
         }
         
-        // Model Processor:
-        let modelProcessor = BaseTextRecognizer()
-        guard let extractedRawText = modelProcessor.analyzeImage(extractedImage: extractedImage) else { return }
+        
+        // Document Extractor:
+        let documentExtractor: DocumentExtractor = BaseDocumentExtractor()
+        let cnicExtractor: BaseDocumentExtractor = CNICExtractor()
+        let cnicROI = CNICExtractor()
+        let regionOfInterest = cnicROI.documentROI()
         
         
-        // DocumentExtractor:
-        //let textExtractor = BaseDocumentExtractor()
-        let creditCardExtractor = CreditCardExtractor()
-        //let str = "minaam\nmastercard\nlol"
-        //textExtractor.extractionHandler(.cnic, str)
-        
-        let text = creditCardExtractor.wordsToSkip(extractedRawText)
+        // Results:
+        guard let extractedResult = documentExtractor.extractionHandler(extractedImage, regionOfInterest) else { return }
+        cnicExtractor.textExtractor(extractedResult)
     }
 }

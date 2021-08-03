@@ -9,22 +9,28 @@
  */
 
 
+import Vision
+
+
 protocol ModelProcessorProtocol {
     
     // Methods:
-    func analyzeImage(extractedImage: CGImage) -> String?
+    func analyzeImage(_ extractedImage: CGImage, _ regionOfInterest: Dictionary <Int, CGRect>) -> String?
+    func analyzeImage(_ extractedImage: CGImage) -> String?
 }
 
 
 open class ModelProcessor: ModelProcessorProtocol {
     
-    // Initialize:
-    private var extractedImage: CGImage?
-    private var imageKind: ImageKind?
-    
-    
     // Methods:
-    public func analyzeImage(extractedImage: CGImage) -> String? {
+    public func analyzeImage(_ extractedImage: CGImage, _ regionOfInterest: Dictionary <Int, CGRect>) -> String? {
+        
+        // Definition in Child-Class.
+        
+        return nil
+    }
+    
+    public func analyzeImage(_ extractedImage: CGImage) -> String? {
         
         // Definition in Child-Class.
         

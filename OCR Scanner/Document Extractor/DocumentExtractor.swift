@@ -10,17 +10,15 @@
 
 
 protocol DocumentExtractorProtocol {
-        
+    
     // Method:
-    func extractionHandler(_ documentKind: ImageKind, _ extractedText: String)
+    func extractionHandler(_ extractedImage: CGImage, _ regionOfInterest: Dictionary <Int, CGRect>) -> String?
 }
 
 
 open class DocumentExtractor: DocumentExtractorProtocol {
     
     // Method:
-    public func extractionHandler(_ documentKind: ImageKind, _ extractedText: String) {
-     
-        // Definition in Child Class.
+    public func extractionHandler(_ extractedImage: CGImage, _ regionOfInterest: Dictionary <Int, CGRect>) -> String? { return nil
     }
 }

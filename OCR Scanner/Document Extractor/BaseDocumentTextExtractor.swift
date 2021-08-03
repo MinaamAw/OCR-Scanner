@@ -1,49 +1,49 @@
 /*
  BaseDocumentExtractor.swift
  OCR Scanner
-
+ 
  Created by Minaam Ahmed Awan on 11/07/2021.
  
  Abstract:
-    Basee Document Extractor: Parent & Abstract Class.
-*/
+ Base Document Extractor: Parent & Abstract Class.
+ */
 
 
 protocol BaseDocumentExtractorProtocol {
     
-    // Methods:
-    func wordsToSkip(_ extractedText: String) -> String
-    func textExtractor(_ extractedText: String) -> String
+    // Method:
+    func textExtractor(_ extractedText: String)
+    func documentROI() -> Dictionary <Int, CGRect>?
 }
 
 
 open class BaseDocumentExtractor: DocumentExtractor, BaseDocumentExtractorProtocol {
     
     // Initialize:
-    var extractedKeys: AnyClass?
     
     
-    // Handle Document Extraction based on Type:
-    public override func extractionHandler(_ documentKind: ImageKind, _ extractedText: String) {
-    
-        // Handle Extraction:
-        switch documentKind {
-        case .creditCard:
-            print("Credit Card")
-        case .cnic:
-            print("CNIC")
-        default:
-            break
-        }
-    }
-    
-    // Filter Generic String & Text from Raw Extraction
-    public func wordsToSkip(_ extractedText: String) -> String {
+    // Handle Document Extraction:
+    public override func extractionHandler(_ extractedImage: CGImage, _ regionOfInterest: Dictionary <Int, CGRect>) -> String? {
         
-        return extractedText
+        // Initialize:
+        let modelProcessor: ModelProcessor = BaseTextRecognizer()
+        
+        // Method Call;
+        let extractionResult = modelProcessor.analyzeImage(extractedImage, regionOfInterest)
+        
+        return extractionResult
     }
     
-    public func textExtractor(_ extractedText: String) -> String {
-        return extractedText
+    
+    // Text Extraction & Parse:
+    func textExtractor(_ extractedText: String) {
+        
+        // Definition in Child Class.
+    }
+    
+    // Document ROI:
+    public func documentROI() -> Dictionary <Int, CGRect>? {
+        
+        return nil
     }
 }

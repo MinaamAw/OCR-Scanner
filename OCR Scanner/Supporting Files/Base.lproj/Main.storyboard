@@ -69,12 +69,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="5Wf-6G-zex">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mIA-9y-bnQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="3XY-O5-z9B" firstAttribute="centerX" secondItem="ycn-FJ-NGp" secondAttribute="centerX" id="0WI-Pd-yOc"/>
                             <constraint firstItem="Qpi-6z-85A" firstAttribute="top" secondItem="ycn-FJ-NGp" secondAttribute="top" id="5QO-aJ-C0r"/>
+                            <constraint firstItem="5Wf-6G-zex" firstAttribute="centerX" secondItem="ycn-FJ-NGp" secondAttribute="centerX" id="672-XO-H7T"/>
+                            <constraint firstItem="5Wf-6G-zex" firstAttribute="centerY" secondItem="ycn-FJ-NGp" secondAttribute="centerY" id="9YK-4s-cx4"/>
                             <constraint firstItem="3XY-O5-z9B" firstAttribute="centerY" secondItem="ycn-FJ-NGp" secondAttribute="centerY" id="Nor-d9-LyO"/>
                             <constraint firstItem="Qpi-6z-85A" firstAttribute="leading" secondItem="ycn-FJ-NGp" secondAttribute="leading" id="RzU-fP-g0B"/>
                             <constraint firstAttribute="centerY" secondItem="Qpi-6z-85A" secondAttribute="centerY" id="V6S-Xe-uJK"/>
@@ -92,6 +97,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="5Wf-6G-zex" id="7qe-ef-Vpa"/>
                         <outlet property="focusView" destination="Qpi-6z-85A" id="1qi-5b-e90"/>
                         <outlet property="previewCamera" destination="3XY-O5-z9B" id="X2B-6n-WBu"/>
                     </connections>

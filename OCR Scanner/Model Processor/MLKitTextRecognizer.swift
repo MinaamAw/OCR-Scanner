@@ -9,13 +9,13 @@
  */
 
 
-final class MLKitTextRecognizer: ModelProcessor {
+final class MLKitTextRecognizer {
     
     // Initialize:
     
     
     // Methods:
-    public override func analyzeImage(extractedImage: CGImage) -> String? {
+    public func analyzeImage(extractedImage: CGImage) -> String? {
         
         return nil
     }
