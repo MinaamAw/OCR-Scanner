@@ -24,9 +24,9 @@ public struct CNIC {
     
     public var identityNumber: String?
 
-    public var birthDate: DateComponents?
+    public var birthDate: String?
     
-    public var issueDate: DateComponents?
+    public var issueDate: String?
     
-    public var expireDate: DateComponents?
+    public var expireDate: String?
 }

@@ -12,7 +12,7 @@
 protocol BaseDocumentExtractorProtocol {
     
     // Method:
-    func textExtractor(_ extractedText: String)
+    func textExtractor(_ extractedText: String) -> Any?
     func documentROI() -> Dictionary <Int, CGRect>?
 }
 
@@ -36,9 +36,10 @@ open class BaseDocumentExtractor: DocumentExtractor, BaseDocumentExtractorProtoc
     
     
     // Text Extraction & Parse:
-    func textExtractor(_ extractedText: String) {
+    func textExtractor(_ extractedText: String) -> Any? {
         
         // Definition in Child Class.
+        return nil
     }
     
     // Document ROI:

@@ -19,7 +19,7 @@ final class BaseTextRecognizer: ModelProcessor {
         
         // Initialize:
         var textRequest = VNRecognizeTextRequest()
-        var extractInfo = [String]()
+        var extractInfo: String = ""
         
         
         // Process:
@@ -33,8 +33,11 @@ final class BaseTextRecognizer: ModelProcessor {
             }).joined(separator: "\n")
             
             // Assign Value:
-            extractInfo.append(text)
-            //print(text)
+            if (text == "") {
+                extractInfo.addString(str: "nil")
+            } else {
+                extractInfo.addString(str: text)
+            }
         }
         
         
@@ -50,13 +53,11 @@ final class BaseTextRecognizer: ModelProcessor {
             textRequest.regionOfInterest = value
             textRequest.usesLanguageCorrection = false
             
-            
             // Execute:
             try? VNImageRequestHandler(cgImage: extractedImage, options: [:]).perform([textRequest])
         }
         
-        print(extractInfo)
-        return "Minaam"
+        return extractInfo
     }
     
     
@@ -93,5 +94,13 @@ final class BaseTextRecognizer: ModelProcessor {
         
         
         return extractedText
+    }
+}
+
+
+// Extensions:
+extension String {
+    mutating func addString(str: String) {
+        self = self + str + "\n"
     }
 }

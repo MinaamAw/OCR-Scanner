@@ -107,6 +107,6 @@ extension ModelProcessorViewController: CameraViewDelegate {
         
         // Results:
         guard let extractedResult = documentExtractor.extractionHandler(extractedImage, regionOfInterest) else { return }
-        cnicExtractor.textExtractor(extractedResult)
+        let extractionResult = cnicExtractor.textExtractor(extractedResult)
     }
 }
