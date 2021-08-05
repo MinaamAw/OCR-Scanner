@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301A1FBC26BBBFDE002E323A /* DocumentRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A1FBB26BBBFDE002E323A /* DocumentRepresentation.swift */; };
+		301A1FBE26BBBFF5002E323A /* BaseDocumentRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A1FBD26BBBFF5002E323A /* BaseDocumentRepresentation.swift */; };
+		301A1FC026BBC062002E323A /* PakistanCNICDocumentRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A1FBF26BBC062002E323A /* PakistanCNICDocumentRepresentation.swift */; };
 		302B30E9269CEF4600BB0287 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B30E8269CEF4600BB0287 /* AppDelegate.swift */; };
 		302B30EB269CEF4600BB0287 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B30EA269CEF4600BB0287 /* SceneDelegate.swift */; };
 		302B30ED269CEF4600BB0287 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B30EC269CEF4600BB0287 /* ViewController.swift */; };
@@ -34,6 +37,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		301A1FBB26BBBFDE002E323A /* DocumentRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRepresentation.swift; sourceTree = "<group>"; };
+		301A1FBD26BBBFF5002E323A /* BaseDocumentRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDocumentRepresentation.swift; sourceTree = "<group>"; };
+		301A1FBF26BBC062002E323A /* PakistanCNICDocumentRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PakistanCNICDocumentRepresentation.swift; sourceTree = "<group>"; };
 		302B30E5269CEF4600BB0287 /* OCR Scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OCR Scanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		302B30E8269CEF4600BB0287 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		302B30EA269CEF4600BB0287 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +83,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		301A1FBA26BBBFC0002E323A /* Representation */ = {
+			isa = PBXGroup;
+			children = (
+				301A1FBB26BBBFDE002E323A /* DocumentRepresentation.swift */,
+				301A1FBD26BBBFF5002E323A /* BaseDocumentRepresentation.swift */,
+				301A1FBF26BBC062002E323A /* PakistanCNICDocumentRepresentation.swift */,
+			);
+			path = Representation;
+			sourceTree = "<group>";
+		};
 		302B30DC269CEF4600BB0287 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +118,7 @@
 				30333E2526B2A4EA008FA715 /* Controller */,
 				302B3103269D0E3500BB0287 /* Model Processor */,
 				302B3104269D0E5300BB0287 /* Document Extractor */,
+				301A1FBA26BBBFC0002E323A /* Representation */,
 				30FFA4F926A0321A004AA14E /* Template Matching */,
 				302B30FC269CF10100BB0287 /* Supporting Files */,
 				302B30F6269CEF4700BB0287 /* Info.plist */,
@@ -260,7 +277,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				301A1FBE26BBBFF5002E323A /* BaseDocumentRepresentation.swift in Sources */,
 				30FFA50126A0321A004AA14E /* ModelProcessorViewController.swift in Sources */,
+				301A1FC026BBC062002E323A /* PakistanCNICDocumentRepresentation.swift in Sources */,
 				30C941CC26A175910016D87D /* FeatureExtractionBridge.mm in Sources */,
 				30333E2C26B2BA02008FA715 /* MLKitTextRecognizer.swift in Sources */,
 				30EFAB0826B3F07E004412BC /* Misc.swift in Sources */,
@@ -275,6 +294,7 @@
 				302B3100269D0BE000BB0287 /* CreditCard.swift in Sources */,
 				302B310B269D6CE700BB0287 /* DocumentExtractor.swift in Sources */,
 				302B30E9269CEF4600BB0287 /* AppDelegate.swift in Sources */,
+				301A1FBC26BBBFDE002E323A /* DocumentRepresentation.swift in Sources */,
 				302B30EB269CEF4600BB0287 /* SceneDelegate.swift in Sources */,
 				304826C126B0ABE6000873CE /* CameraView.swift in Sources */,
 				30EFAB0626B3E93D004412BC /* BaseDocumentTextExtractor.swift in Sources */,

@@ -67,6 +67,11 @@ class ModelProcessorViewController: UIViewController, AVCaptureVideoDataOutputSa
     }
     
     
+    // Memory Warning:
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     // Setup UI:
     func setupUI() {
         // Setup UI In Controller:
@@ -83,30 +88,46 @@ class ModelProcessorViewController: UIViewController, AVCaptureVideoDataOutputSa
 
 // MARK: Extension CameraViewDelegate:
 extension ModelProcessorViewController: CameraViewDelegate {
-    internal func processImage(extractedImage: CGImage) {
+    internal func processImage(_ extractedImage: CGImage, _ imageKind: ImageKind) {
         
-        // Camera Session:
+        // Initialize:
+        let extractionResult: Any?
+        
+        
+        // MARK: Camera Session:
         DispatchQueue.main.async {
             
-            // Camera View:
+            // Camera Preview:
             self.cameraView.stopSession()
             self.cameraView.processModel()
             
+            // Controller UI:
             self.previewCamera.layer.removeFromSuperlayer()
             self.focusView.backgroundColor = .systemBackground
             self.activityIndicator.startAnimating()
         }
         
         
-        // Document Extractor:
+        // MARK: Document Extractor:
         let documentExtractor: DocumentExtractor = BaseDocumentExtractor()
-        let cnicExtractor: BaseDocumentExtractor = CNICExtractor()
-        let cnicROI = CNICExtractor()
-        let regionOfInterest = cnicROI.documentROI()
         
+        if (imageKind == .cnic) {
+            
+            // CNIC Extraction:
+            let cnicExtractor: BaseDocumentExtractor = CNICExtractor()
+            let cnicROI = CNICExtractor()
+            
+
+            // Method Calls:
+            let regionOfInterest = cnicROI.documentROI()
+            guard let extractedResult = documentExtractor.extractionHandler(extractedImage, regionOfInterest) else { return }
+            extractionResult = cnicExtractor.textExtractor(extractedResult)
+            
+        } else if (imageKind == .creditCard) {
+            
+        } else {
+            print("Document not Recognized.")
+        }
         
-        // Results:
-        guard let extractedResult = documentExtractor.extractionHandler(extractedImage, regionOfInterest) else { return }
-        let extractionResult = cnicExtractor.textExtractor(extractedResult)
     }
 }

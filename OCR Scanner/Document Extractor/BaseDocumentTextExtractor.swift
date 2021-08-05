@@ -5,7 +5,7 @@
  Created by Minaam Ahmed Awan on 11/07/2021.
  
  Abstract:
- Base Document Extractor: Parent & Abstract Class.
+ Base Document Extractor: Base Document Extraction Class.
  */
 
 

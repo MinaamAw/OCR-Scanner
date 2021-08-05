@@ -1,12 +1,12 @@
 /*
  ViewController.swift
  OCR Scanner
-
+ 
  Created by Minaam Ahmed Awan on 11/07/2021.
-
+ 
  Abstract:
  Main View Controller: Handles Scan Button Action and Displays Saved Scans.
-*/
+ */
 
 
 import UIKit
@@ -25,9 +25,13 @@ class ViewController: UIViewController {
         // Present:
         navigationController?.pushViewController(cameraViewController, animated: true)
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 }

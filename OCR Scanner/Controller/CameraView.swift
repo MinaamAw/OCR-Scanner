@@ -18,7 +18,7 @@ import VideoToolbox
 // Protocols:
 public protocol CameraViewDelegate: AnyObject {
     
-    func processImage(extractedImage: CGImage)
+    func processImage(_ extractedImage: CGImage, _ imageType: ImageKind)
 }
 
 
@@ -332,8 +332,12 @@ extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         // Condition Handler:
         if cardType == true {
+            
+            // Save Image to Gallery:
             UIImageWriteToSavedPhotosAlbum(extractedImg, nil, nil, nil)
-            delegate?.processImage(extractedImage: extractedImg.cgImage!)
+            
+            // Send Delegate Result:
+            delegate?.processImage(extractedImg.cgImage!, .cnic)
         }
         else {
             return
