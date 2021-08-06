@@ -110,18 +110,36 @@ extension ModelProcessorViewController: CameraViewDelegate {
         
         // MARK: Document Extractor:
         let documentExtractor: DocumentExtractor = BaseDocumentExtractor()
+        let documentRepresentation: DocumentRepresentation = BaseDocumentRepresentation()
         
         if (imageKind == .cnic) {
             
-            // CNIC Extraction:
+            // CNIC Extraction & Representation:
             let cnicExtractor: BaseDocumentExtractor = CNICExtractor()
+            
             let cnicROI = CNICExtractor()
             
-
-            // Method Calls:
+            // CNIC Text Extraction & Model:
             let regionOfInterest = cnicROI.documentROI()
             guard let extractedResult = documentExtractor.extractionHandler(extractedImage, regionOfInterest) else { return }
             extractionResult = cnicExtractor.textExtractor(extractedResult)
+            
+            // CNIC Representation:
+            let representationResult = documentRepresentation.representationHandler(imageKind)
+            
+            let uiImage = UIImage(cgImage: extractedImage)
+            
+            DispatchQueue.main.async {
+                
+                let cnicViewController =
+                    self.storyboard?.instantiateViewController(identifier: representationResult!) as! PakistanCNICDocumentRepresentationViewController
+                
+                // Present:
+                cnicViewController.documentArray.append(extractionResult as! CNIC)
+                cnicViewController.imgView = uiImage
+                
+                self.navigationController?.pushViewController(cnicViewController, animated: true)
+            }
             
         } else if (imageKind == .creditCard) {
             

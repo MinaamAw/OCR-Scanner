@@ -12,4 +12,27 @@
 open class BaseDocumentRepresentation: DocumentRepresentation {
     
     // Initialize:
+    static let cnicRepresentation = "cnicVC"
+    static let creditCardRepresentation = "ccvC"
+    
+    
+    // Handle Document Representation:
+    public override func representationHandler(_ imageKind: ImageKind) -> String? {
+        
+        // Initialize:
+        var vcID: String?
+        
+        // Handle Image Type:
+        switch imageKind {
+        case .cnic:
+            vcID = BaseDocumentRepresentation.cnicRepresentation
+        case .creditCard:
+            vcID = BaseDocumentRepresentation.creditCardRepresentation
+        default:
+            print("Representation not matched")
+        }
+        
+        return vcID
+    }
+    
 }

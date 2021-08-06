@@ -5,7 +5,7 @@
  Created by Minaam Ahmed Awan on 11/07/2021.
  
  Abstract:
- CNIC Extractor: Generate Key Value Pairs from Extracted Text.
+ CNIC Extractor: Generate Key Value Pairs and Model from Extracted Text.
  */
 
 

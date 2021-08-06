@@ -12,7 +12,7 @@
 protocol DocumentRepresentationProtocol {
     
     // Method:
-    func representationHandler(_ imageKind: ImageKind) -> String? 
+    func representationHandler(_ imageKind: ImageKind) -> String?
 }
 
 
@@ -23,4 +23,5 @@ open class DocumentRepresentation: DocumentRepresentationProtocol {
         
         return nil
     }
+    
 }
