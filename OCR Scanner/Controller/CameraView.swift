@@ -324,20 +324,31 @@ extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
         guard let extractedImg = detectRectangle(in: imageBuffer) else { return }
         
         // Template Matcher:
-        let srcImg = #imageLiteral(resourceName: "CNICFormat")
+        let srcCNICImg = #imageLiteral(resourceName: "CNICFormat")
+        let srcCCImg = #imageLiteral(resourceName: "CreditCardFormat")
         //let extractedFrame = #imageLiteral(resourceName: "CNIC Test")
-        var cardType = false
+        var cardType : String = ""
         
-        cardType = FeatureExtractionBridge().extraction_result(srcImg, targetImage: extractedImg)
+        cardType = FeatureExtractionBridge().extraction_result(srcCNICImg, creditCardImg: srcCCImg, targetImage: extractedImg)
+    
         
         // Condition Handler:
-        if cardType == true {
+        if cardType == "CNIC" {
             
             // Save Image to Gallery:
             UIImageWriteToSavedPhotosAlbum(extractedImg, nil, nil, nil)
             
             // Send Delegate Result:
             delegate?.processImage(extractedImg.cgImage!, .cnic)
+            
+        } else if cardType == "CC" {
+            
+            // Save Image to Gallery:
+            UIImageWriteToSavedPhotosAlbum(extractedImg, nil, nil, nil)
+            
+            // Send Delegate Result:
+            delegate?.processImage(extractedImg.cgImage!, .creditCard)
+
         }
         else {
             return

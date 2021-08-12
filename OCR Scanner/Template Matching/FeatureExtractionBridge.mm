@@ -19,26 +19,33 @@
 
 @implementation FeatureExtractionBridge
 
-- (bool) extraction_result:(UIImage *)srcImg targetImage:(UIImage *)trgtImg {
+- (NSString *) extraction_result:(UIImage *)srcImg creditCardImg:(UIImage *)srcCCImg targetImage:(UIImage *)trgtImg {
     
     // Initialize Mat Image Variables for OpenCV:
     FeatureExtraction ftExtrct;
-    cv::Mat srcImage, trgtImage;
-    bool ans = false;
+    cv::Mat srcImage, srcCCImage, trgtImage;
+    string ans = "";
+    NSString *errorMessage;
     
     // Convert UI Image to Mat:
     UIImageToMat(srcImg, srcImage, true);
+    UIImageToMat(srcCCImg, srcCCImage, true);
     UIImageToMat(trgtImg, trgtImage, true);
     
     // Condition:
-    if (srcImage.empty() || trgtImage.empty()) {
-        return ans;
+    if (srcImage.empty() || srcCCImage.empty() || trgtImage.empty()) {
+        return @"FALSE";
     } else {
         // Function Call:
-        ans = ftExtrct.extraction_result(srcImage, trgtImage);
+        ans = ftExtrct.extraction_result(srcImage, srcCCImage, trgtImage);
+        
+        errorMessage = [NSString stringWithCString:ans.c_str()
+                                           encoding:[NSString defaultCStringEncoding]];
+        
+        return errorMessage;
     }
     
-    return ans;
+    return errorMessage;
 }
 
 @end

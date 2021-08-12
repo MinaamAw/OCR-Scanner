@@ -21,13 +21,13 @@ using namespace std;
 // Driver Code:
 
 // Show Result to Swift:
-bool FeatureExtraction::extraction_result(Mat imgSrc, Mat imgTrgt) {
+string FeatureExtraction::extraction_result(Mat imgSrc, Mat imgCCSrc, Mat imgTrgt) {
     
     // Initialize:
-    bool flag;
+    string flag;
     
     // Get Results:
-    flag = extract_features(imgSrc, imgTrgt);
+    flag = extract_features(imgSrc, imgCCSrc, imgTrgt);
     
     return flag;
 }
@@ -60,35 +60,48 @@ Mat FeatureExtraction::convert_image_bgr(Mat image) {
 
 
 // Extract Features using ORB:
-bool FeatureExtraction::extract_features(Mat imgSrc, Mat imgTrgt) {
+string FeatureExtraction::extract_features(Mat imgSrc, Mat imgCCSrc, Mat imgTrgt) {
     
     // Initialize:
     float thershold = 0.70;
-    vector<KeyPoint> keySrc, keyTrgt;
-    vector<vector<cv::DMatch>> knnMatches;
-    Mat descSrc, descTrgt;
-    DMatch bestMatch, betterMatch;
-    vector<DMatch> goodMatches;
+    vector<KeyPoint> keySrc, keyTrgt, keySrcCC, keyTrgtCC;
+    vector<vector<cv::DMatch>> knnMatches, knnMatchesCC;
+    Mat descSrc, descTrgt, descSrcCC, descTrgtCC;
+    DMatch bestMatch, betterMatch, bestMatchCC, betterMatchCC;
+    vector<DMatch> goodMatches, goodMatchesCC;
     
     // Features to Extract: 1500.
     Ptr<ORB> orb = ORB::create(1000);
+    Ptr<ORB> orbCC = ORB::create(1000);
+    
+    //Crop Image for CC:
+    Mat cropTrgt = imgTrgt(Range(80,280),Range(150,330));
     
     // Convert Images:
     imgSrc = convert_image(imgSrc);
+    imgCCSrc = convert_image(imgCCSrc);
     imgTrgt = convert_image_bgr(imgTrgt);
-    
+    cropTrgt = convert_image_bgr(cropTrgt);
+        
     // Compute:
     orb->detectAndCompute(imgSrc, Mat(), keySrc, descSrc);
+    orbCC->detectAndCompute(imgCCSrc, Mat(), keySrcCC, descSrcCC);
     orb->detectAndCompute(imgTrgt, Mat(), keyTrgt, descTrgt);
+    orbCC->detectAndCompute(cropTrgt, Mat(), keyTrgtCC, descTrgtCC);
     
     // Matcher;
-    if (descSrc.empty() || descTrgt.empty()) {
-        return false;
+    if (descSrc.empty() || descTrgt.empty() || descSrcCC.empty() || descTrgtCC.empty()) {
+        return "FALSE";
     }
     else {
         Ptr<DescriptorMatcher> bf = DescriptorMatcher::create(BFMatcher::BRUTEFORCE);
         bf->knnMatch(descSrc, descTrgt, knnMatches, 2);
+        
+        Ptr<DescriptorMatcher> bfCC = DescriptorMatcher::create(BFMatcher::BRUTEFORCE);
+        bfCC->knnMatch(descSrcCC, descTrgtCC, knnMatchesCC, 2);
+        
         goodMatches.clear();
+        goodMatchesCC.clear();
         
         for (int i = 0; i < knnMatches.size(); i++){
             
@@ -103,10 +116,25 @@ bool FeatureExtraction::extract_features(Mat imgSrc, Mat imgTrgt) {
             }
         }
         
+        for (int j = 0; j < knnMatchesCC.size(); j++){
+            
+            // Value Extraction:
+            bestMatchCC = knnMatchesCC[j][0];
+            betterMatchCC = knnMatchesCC[j][1];
+            
+            float finalDistance = bestMatchCC.distance / betterMatchCC.distance;
+            
+            if (finalDistance <= thershold) {
+                goodMatchesCC.push_back(bestMatchCC);
+            }
+        }
+                
         if (goodMatches.size() >= 12) {
-            return true;
+            return "CNIC";
+        } else if (goodMatchesCC.size() >= 9) {
+            return "CC";
         } else {
-            return false;
+            return "FALSE";
         }
     }
 }

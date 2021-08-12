@@ -39,10 +39,10 @@ final class CNICExtractor: BaseDocumentExtractor {
             // Date of Birth
             6: CGRect(x: 0.05, y: 0.2, width: 0.45, height: 0.05),
             
-            // Date of Issue:
+            // Date of Issue
             7: CGRect(x: 0.06, y: 0.06, width: 0.4, height: 0.07),
             
-            // Date of Expiry;
+            // Date of Expiry
             8: CGRect(x: 0.5, y: 0.06, width: 0.4, height: 0.07)
         ]
         

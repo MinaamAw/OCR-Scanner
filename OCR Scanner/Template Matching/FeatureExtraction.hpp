@@ -24,12 +24,12 @@ using namespace std;
 class FeatureExtraction {
     
 public:
-    bool extraction_result(Mat imgSrc, Mat imgTrgt);
+    string extraction_result(Mat imgSrc, Mat imgCCSrc, Mat imgTrgt);
     
 private:
     Mat convert_image(Mat image);
     
     Mat convert_image_bgr(Mat image);
     
-    bool extract_features(Mat imgSrc, Mat imgTrgt);
+    string extract_features(Mat imgSrc, Mat imgCCSrc, Mat imgTrgt);
 };

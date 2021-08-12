@@ -16,6 +16,6 @@
 
 @interface FeatureExtractionBridge : NSObject
 
-- (bool)extraction_result:(UIImage *)srcImg targetImage:(UIImage *) trgtImg;
+- (NSString *)extraction_result:(UIImage *)srcImg creditCardImg:(UIImage *)srcCCImg targetImage:(UIImage *) trgtImg;
 
 @end

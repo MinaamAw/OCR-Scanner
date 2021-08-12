@@ -121,6 +121,7 @@ extension ModelProcessorViewController: CameraViewDelegate {
             
             // CNIC Text Extraction & Model:
             let regionOfInterest = cnicROI.documentROI()
+            
             guard let extractedResult = documentExtractor.extractionHandler(extractedImage, regionOfInterest) else { return }
             extractionResult = cnicExtractor.textExtractor(extractedResult)
             
@@ -142,6 +143,22 @@ extension ModelProcessorViewController: CameraViewDelegate {
             }
             
         } else if (imageKind == .creditCard) {
+            
+            // Credit Card Extraction & Representation:
+            let creditCardExtractor: BaseDocumentExtractor = CreditCardExtractor()
+            
+            let ccROI = CreditCardExtractor()
+            
+            // CNIC Text Extraction & Model:
+            let regionOfInterest = ccROI.documentROI()
+            
+            guard let extractedResult = documentExtractor.extractionHandler(extractedImage, regionOfInterest) else { return }
+            
+            print(extractedResult)
+            
+            extractionResult = creditCardExtractor.textExtractor(extractedResult)
+            
+            print(extractedResult)
             
         } else {
             print("Document not Recognized.")
