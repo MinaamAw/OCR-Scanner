@@ -48,4 +48,30 @@
     return errorMessage;
 }
 
+
+// Image Pre-Process:
+- (UIImage *)image_preprocess:(UIImage *)trgtImg {
+    
+    // Initialize Mat Image Variables for OpenCV:
+    FeatureExtraction ftProcess;
+    cv::Mat trgtImage, processedImage;
+
+    // Convert UI Image to Mat:
+    UIImageToMat(trgtImg, trgtImage, true);
+    
+    // Condition:
+    if (trgtImage.empty()) {
+        return nil;
+    } else {
+        
+        // Function Call:
+        processedImage = ftProcess.image_process(trgtImage);
+        
+        return MatToUIImage(processedImage);
+    }
+    
+    return nil;
+}
+
+
 @end

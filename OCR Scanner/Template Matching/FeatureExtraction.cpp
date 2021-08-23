@@ -44,7 +44,7 @@ Mat FeatureExtraction::convert_image(Mat image) {
     
     return greyscaleImg;
 }
-Mat convert_image(Mat image);
+
 
 // Convert Image to Greyscale (BGRA):
 Mat FeatureExtraction::convert_image_bgr(Mat image) {
@@ -56,6 +56,26 @@ Mat FeatureExtraction::convert_image_bgr(Mat image) {
     cvtColor(image, greyscaleImg, CV_RGBA2GRAY);
     
     return greyscaleImg;
+}
+
+
+// Pre-Process Image for OCR:
+Mat FeatureExtraction::image_process(Mat imgTrgt) {
+    
+    // Initialize:
+    Mat imgGray, imgNoise, imgCntrst;
+    Mat element = getStructuringElement( MORPH_RECT, Size(9,3));
+    
+    // Convert Image to Greyscale:
+    cvtColor(imgTrgt, imgGray, COLOR_BGR2GRAY);
+    
+    // Image Noise Removal:
+    medianBlur(imgTrgt, imgNoise, 5);
+    
+    // Image Contrast:
+    imgNoise.convertTo(imgCntrst, -1, 1.05, 0); //increase the contrast by 2
+    
+    return imgCntrst;
 }
 
 
@@ -82,7 +102,7 @@ string FeatureExtraction::extract_features(Mat imgSrc, Mat imgCCSrc, Mat imgTrgt
     imgCCSrc = convert_image(imgCCSrc);
     imgTrgt = convert_image_bgr(imgTrgt);
     cropTrgt = convert_image_bgr(cropTrgt);
-        
+    
     // Compute:
     orb->detectAndCompute(imgSrc, Mat(), keySrc, descSrc);
     orbCC->detectAndCompute(imgCCSrc, Mat(), keySrcCC, descSrcCC);
@@ -128,7 +148,7 @@ string FeatureExtraction::extract_features(Mat imgSrc, Mat imgCCSrc, Mat imgTrgt
                 goodMatchesCC.push_back(bestMatchCC);
             }
         }
-                
+        
         if (goodMatches.size() >= 12) {
             return "CNIC";
         } else if (goodMatchesCC.size() >= 9) {

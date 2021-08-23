@@ -29,6 +29,7 @@ final class CameraView: UIView {
     
     
     // Initialize:
+    private var boundingBoxCount = 0
     private var maskLayer = CAShapeLayer()
     private var boundLayer = CAShapeLayer()
     private var bufferAspectRatio: Double!
@@ -210,8 +211,7 @@ final class CameraView: UIView {
                 
                 guard let rect = results.first else { return }
                 
-                self.drawBoundingBox(rect: rect)
-                self.croppedImage = self.cropImage(rect, from: image)
+                self.drawBoundingBox(rect: rect, image: image)
             }
         })
         
@@ -232,12 +232,20 @@ final class CameraView: UIView {
     
     
     // Draw Rectangle Box:
-    private func drawBoundingBox(rect : VNRectangleObservation) {
+    private func drawBoundingBox(rect : VNRectangleObservation, image: CVPixelBuffer) {
         
         let transform = CGAffineTransform(scaleX: 1, y: -1).translatedBy(x: 0, y: -self.videoPreviewLayer.frame.height)
         let scale = CGAffineTransform.identity.scaledBy(x: self.videoPreviewLayer.frame.width, y: self.videoPreviewLayer.frame.height)
         
         let bounds = rect.boundingBox.applying(scale).applying(transform)
+        
+        // Condition for Crop:
+        if (boundingBoxCount >= 8) {
+            self.croppedImage = self.cropImage(rect, from: image)
+        } else {
+            boundingBoxCount = boundingBoxCount + 1
+        }
+        
         createLayer(in: bounds)
     }
     

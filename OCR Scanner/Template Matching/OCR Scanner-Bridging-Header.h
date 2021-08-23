@@ -1,4 +1,3 @@
-
 /*
  OCR Scanner-Bridging-Header.h
  OCR Scanner

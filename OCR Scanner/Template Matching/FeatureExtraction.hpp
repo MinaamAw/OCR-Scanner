@@ -26,6 +26,8 @@ class FeatureExtraction {
 public:
     string extraction_result(Mat imgSrc, Mat imgCCSrc, Mat imgTrgt);
     
+    Mat image_process(Mat imgTrgt);
+    
 private:
     Mat convert_image(Mat image);
     

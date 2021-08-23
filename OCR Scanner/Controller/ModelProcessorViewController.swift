@@ -122,24 +122,34 @@ extension ModelProcessorViewController: CameraViewDelegate {
             // CNIC Text Extraction & Model:
             let regionOfInterest = cnicROI.documentROI()
             
-            guard let extractedResult = documentExtractor.extractionHandler(extractedImage, regionOfInterest) else { return }
+            // OpenCV Image Processing:
+            let extractedCGImage = UIImage(cgImage: extractedImage)
+            let img = FeatureExtractionBridge().image_preprocess(extractedCGImage)
+            
+            let val = img?.cgImage
+            
+            
+            guard let extractedResult = documentExtractor.extractionHandler(val!, regionOfInterest) else { return }
+            
+            print(extractedResult)
+            
             extractionResult = cnicExtractor.textExtractor(extractedResult)
             
             // CNIC Representation:
             let representationResult = documentRepresentation.representationHandler(imageKind)
             
             let uiImage = UIImage(cgImage: extractedImage)
-            
+
             DispatchQueue.main.async {
-                
+
                 let cnicViewController =
-                    self.storyboard?.instantiateViewController(identifier: representationResult!) as! PakistanCNICDocumentRepresentationViewController
-                
-                // Present:
+                self.storyboard?.instantiateViewController(identifier: representationResult!) as! PakistanCNICDocumentRepresentationViewController
+                //                // Present:
                 cnicViewController.documentArray.append(extractionResult as! CNIC)
                 cnicViewController.imgView = uiImage
-                
+
                 self.navigationController?.pushViewController(cnicViewController, animated: true)
+                
             }
             
         } else if (imageKind == .creditCard) {
@@ -152,13 +162,18 @@ extension ModelProcessorViewController: CameraViewDelegate {
             // CNIC Text Extraction & Model:
             let regionOfInterest = ccROI.documentROI()
             
-            guard let extractedResult = documentExtractor.extractionHandler(extractedImage, regionOfInterest) else { return }
+            // OpenCV Image Processing:
+            let extractedCGImage = UIImage(cgImage: extractedImage)
+            let img = FeatureExtractionBridge().image_preprocess(extractedCGImage)
+            
+            let val = img?.cgImage
+            
+            
+            guard let extractedResult = documentExtractor.extractionHandler(val!, regionOfInterest) else { return }
             
             print(extractedResult)
             
             extractionResult = creditCardExtractor.textExtractor(extractedResult)
-            
-            print(extractedResult)
             
         } else {
             print("Document not Recognized.")

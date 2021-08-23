@@ -18,4 +18,6 @@
 
 - (NSString *)extraction_result:(UIImage *)srcImg creditCardImg:(UIImage *)srcCCImg targetImage:(UIImage *) trgtImg;
 
+- (UIImage *)image_preprocess:(UIImage *)trgtImg;
+
 @end

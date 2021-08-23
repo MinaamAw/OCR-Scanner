@@ -22,22 +22,22 @@ final class CNICExtractor: BaseDocumentExtractor {
             //            1: CGRect(x: 0.06, y: 0.68, width: 0.6, height: 0.1),
             
             // Name
-            1: CGRect(x: 0.05, y: 0.68, width: 0.55, height: 0.09),
+            1: CGRect(x: 0.05, y: 0.68, width: 0.9, height: 0.1),
             
             // Father Name
-            2: CGRect(x: 0.06, y: 0.45, width: 0.9, height: 0.12),
+            2: CGRect(x: 0.05, y: 0.48, width: 0.9, height: 0.1),
             
             // Gender
-            3: CGRect(x: 0.06, y: 0.3, width: 0.3, height: 0.07),
+            3: CGRect(x: 0.0, y: 0.28, width: 0.9, height: 0.1),
             
             // Country
-            4: CGRect(x: 0.35, y: 0.3, width: 0.4, height: 0.09),
+            4: CGRect(x: 0.35, y: 0.29, width: 0.45, height: 0.09),
             
             // Identity
-            5: CGRect(x: 0.5, y: 0.2, width: 0.45, height: 0.05),
+            5: CGRect(x: 0.05, y: 0.15, width: 0.47, height: 0.09),
             
             // Date of Birth
-            6: CGRect(x: 0.05, y: 0.2, width: 0.45, height: 0.05),
+            6: CGRect(x: 0.5, y: 0.15, width: 0.5, height: 0.09),
             
             // Date of Issue
             7: CGRect(x: 0.06, y: 0.06, width: 0.4, height: 0.07),
@@ -59,11 +59,11 @@ final class CNICExtractor: BaseDocumentExtractor {
         
         
         // Regular Expression Patterns:
-        let name: Regex = #"([A-z]{4,}\h([A-z.]+\h)?[A-z]{2,})"#
+        let name: Regex = #"([A-z]{3,}\h([A-z.]+\h)?[A-z]{2,})"#
         let gender: Regex = #"^([M | F]{1})$"#
         let date: Regex = #"^([0]?[1-9]|[1|2][0-9]|[3][0|1])[. / - \s]([0]?[1-9]|[1][0-2])[. / - \s]([1-9][0-9]{3})$"#
         let countries: Regex = #"([A-z]{4,})$"#
-        let identity: Regex = #"([0-9]{5})[-]([0-9]{7})[-]([0-9]{1})$"#
+        let identity: Regex = #"([0-9]{5})[-]([0-9]{7})[- \s]([0-9]{1})$"#
         
         
         // Extract Lines:

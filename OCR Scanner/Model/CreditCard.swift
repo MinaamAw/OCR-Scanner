@@ -16,9 +16,9 @@ public struct CreditCard {
     
     public var cardNumber: String?
     
-    public var issueDate: DateComponents?
+    public var issueDate: String?
     
-    public var expireDate: DateComponents?
+    public var expireDate: String?
     
     public var holderName: String?
 }
